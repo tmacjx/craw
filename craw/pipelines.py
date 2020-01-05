@@ -67,8 +67,8 @@ class SQLitePipeline(object):
         except Exception as e:
             self.db_conn.rollback()
             self.logger.error('写入栏目 error %s' % e, exc_info=True)
-            print('error', e)
-        print('success inset cate')
+            self.logger.debug('error', e)
+        self.logger.debug('success inset cate')
 
     # 插入数据
     def insert_user(self, item):
@@ -99,6 +99,6 @@ class SQLitePipeline(object):
         else:
             # 暂存到redis中
             redis_client.set_add(item['userid'])
-            print('success insert user')
+            self.logger.debug('success insert user')
 
 

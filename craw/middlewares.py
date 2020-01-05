@@ -209,7 +209,7 @@ from fake_useragent import UserAgent
 class RandomUserAgent(object):
 
     def process_request(self, request, spider):
-        ua = UserAgent()
+        ua = UserAgent(verify_ssl=False)
         request.headers['Accept-Encoding'] = 'gzip, deflate'
         request.headers['Accept'] = 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
         request.headers['Connection'] = 'keep-alive'
@@ -242,15 +242,15 @@ class ProxyMiddleware(object):
 
     def process_request(self, request, spider):
         proxy_ip = ip_util.get_random_ip()
-        spider.logger.debug('using ip proxy:', proxy_ip)
+        spider.logger.debug('using ip proxy: %s' % proxy_ip)
         request.meta["proxy"] = proxy_ip
 
     def process_response(self, request, response, spider):
         # 如果返回的response状态不是200，重新生成当前request对象
         if response.status != 200:
             proxy_ip = ip_util.get_random_ip()
-            spider.logger.debug("change Proxy: %s" % proxy_ip)
             # 对当前reque加上代理
+            spider.logger.debug("change Proxy: %s" % proxy_ip)
             request.meta['proxy'] = proxy_ip
             return request
         return response
