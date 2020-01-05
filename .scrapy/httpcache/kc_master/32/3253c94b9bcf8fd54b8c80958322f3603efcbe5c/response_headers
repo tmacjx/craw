@@ -1,0 +1,10 @@
+Server: Microsoft-IIS/7.5
+Via: 1.1 cloud (squid/3.5.20)
+X-Powered-By: ASP.NET
+Vary: Accept-Encoding
+Content-Type: text/html
+Content-Encoding: gzip
+Cache-Control: private
+Date: Sun, 05 Jan 2020 06:12:20 GMT
+X-Cache-Lookup: MISS from cloud:33157
+X-Cache: MISS from cloud
