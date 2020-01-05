@@ -1,0 +1,968 @@
+2020-01-05 12:09:08 [scrapy.utils.log] INFO: Scrapy 1.6.0 started (bot: craw)
+2020-01-05 12:09:08 [scrapy.utils.log] INFO: Versions: lxml 4.3.3.0, libxml2 2.9.4, cssselect 1.0.3, parsel 1.5.1, w3lib 1.20.0, Twisted 19.2.0, Python 3.5.1 (v3.5.1:37a07cee5969, Dec  5 2015, 21:12:44) - [GCC 4.2.1 (Apple Inc. build 5666) (dot 3)], pyOpenSSL 16.2.0 (OpenSSL 1.0.2k  26 Jan 2017), cryptography 1.7.2, Platform Darwin-18.2.0-x86_64-i386-64bit
+2020-01-05 12:09:08 [scrapy.crawler] INFO: Overridden settings: {'SPIDER_MODULES': ['craw.spiders'], 'BOT_NAME': 'craw', 'NEWSPIDER_MODULE': 'craw.spiders', 'LOG_FILE': 'craw.log', 'DOWNLOAD_DELAY': 1, 'DUPEFILTER_CLASS': 'scrapy_redis.dupefilter.RFPDupeFilter', 'SCHEDULER': 'scrapy_redis.scheduler.Scheduler'}
+2020-01-05 12:09:08 [scrapy.extensions.telnet] INFO: Telnet Password: 7aa1b08f75aa4012
+2020-01-05 12:09:08 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.corestats.CoreStats']
+2020-01-05 12:09:08 [kc_slave] INFO: Reading start URLs from redis key 'kc0011_slave:start_urls' (batch size: 16, encoding: utf-8
+2020-01-05 12:09:08 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'craw.middlewares.RandomUserAgent',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'craw.middlewares.ProxyMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-01-05 12:09:08 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-01-05 12:09:08 [scrapy.middleware] INFO: Enabled item pipelines:
+['scrapy_redis.pipelines.RedisPipeline']
+2020-01-05 12:09:08 [scrapy.core.engine] INFO: Spider opened
+2020-01-05 12:09:08 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-01-05 12:09:08 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2020-01-05 12:09:08 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:09:09 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:09:09 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:09:09 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:09:09 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:09:09 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:09:09 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:09:09 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:09:09 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:09:09 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:09:09 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=23092288&page=58> (failed 1 times): Connection was refused by other side: 61: Connection refused.
+2020-01-05 12:09:09 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:09:09 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:09:09 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:09:09 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:09:09 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:09:09 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:09:09 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:09:09 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:09:09 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:09:09 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:09:09 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:09:09 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:09:09 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:09:09 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:09:09 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:09:10 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:09:10 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:09:10 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:09:10 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:09:10 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:09:10 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:09:10 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:09:10 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:09:10 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:09:15 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=23092288&page=58> (failed 2 times): Connection was refused by other side: 61: Connection refused.
+2020-01-05 12:09:15 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:09:16 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:10:08 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-01-05 12:10:25 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=23163368&page=58> (failed 1 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 12:10:25 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:10:26 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:10:26 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105> (referer: http://www.kc0011.net)
+2020-01-05 12:10:26 [kc_slave] DEBUG: Read 16 requests from 'kc0011_slave:start_urls'
+2020-01-05 12:10:27 [PIL.Image] DEBUG: Importing BmpImagePlugin
+2020-01-05 12:10:27 [PIL.Image] DEBUG: Importing BufrStubImagePlugin
+2020-01-05 12:10:27 [PIL.Image] DEBUG: Importing CurImagePlugin
+2020-01-05 12:10:27 [PIL.Image] DEBUG: Importing DcxImagePlugin
+2020-01-05 12:10:27 [PIL.Image] DEBUG: Importing DdsImagePlugin
+2020-01-05 12:10:27 [PIL.Image] DEBUG: Importing EpsImagePlugin
+2020-01-05 12:10:27 [PIL.Image] DEBUG: Importing FitsStubImagePlugin
+2020-01-05 12:10:27 [PIL.Image] DEBUG: Importing FliImagePlugin
+2020-01-05 12:10:27 [PIL.Image] DEBUG: Importing FpxImagePlugin
+2020-01-05 12:10:27 [PIL.Image] DEBUG: Importing FtexImagePlugin
+2020-01-05 12:10:27 [PIL.Image] DEBUG: Importing GbrImagePlugin
+2020-01-05 12:10:27 [PIL.Image] DEBUG: Importing GifImagePlugin
+2020-01-05 12:10:27 [PIL.Image] DEBUG: Importing GribStubImagePlugin
+2020-01-05 12:10:27 [PIL.Image] DEBUG: Importing Hdf5StubImagePlugin
+2020-01-05 12:10:27 [PIL.Image] DEBUG: Importing IcnsImagePlugin
+2020-01-05 12:10:27 [PIL.Image] DEBUG: Importing IcoImagePlugin
+2020-01-05 12:10:27 [PIL.Image] DEBUG: Importing ImImagePlugin
+2020-01-05 12:10:27 [PIL.Image] DEBUG: Importing ImtImagePlugin
+2020-01-05 12:10:27 [PIL.Image] DEBUG: Importing IptcImagePlugin
+2020-01-05 12:10:27 [PIL.Image] DEBUG: Importing JpegImagePlugin
+2020-01-05 12:10:27 [PIL.Image] DEBUG: Importing Jpeg2KImagePlugin
+2020-01-05 12:10:27 [PIL.Image] DEBUG: Importing McIdasImagePlugin
+2020-01-05 12:10:27 [PIL.Image] DEBUG: Importing MicImagePlugin
+2020-01-05 12:10:27 [PIL.Image] DEBUG: Importing MpegImagePlugin
+2020-01-05 12:10:27 [PIL.Image] DEBUG: Importing MpoImagePlugin
+2020-01-05 12:10:27 [PIL.Image] DEBUG: Importing MspImagePlugin
+2020-01-05 12:10:27 [PIL.Image] DEBUG: Importing PalmImagePlugin
+2020-01-05 12:10:27 [PIL.Image] DEBUG: Importing PcdImagePlugin
+2020-01-05 12:10:27 [PIL.Image] DEBUG: Importing PcxImagePlugin
+2020-01-05 12:10:27 [PIL.Image] DEBUG: Importing PdfImagePlugin
+2020-01-05 12:10:27 [PIL.Image] DEBUG: Importing PixarImagePlugin
+2020-01-05 12:10:27 [PIL.Image] DEBUG: Importing PngImagePlugin
+2020-01-05 12:10:27 [PIL.Image] DEBUG: Importing PpmImagePlugin
+2020-01-05 12:10:27 [PIL.Image] DEBUG: Importing PsdImagePlugin
+2020-01-05 12:10:27 [PIL.Image] DEBUG: Importing SgiImagePlugin
+2020-01-05 12:10:27 [PIL.Image] DEBUG: Importing SpiderImagePlugin
+2020-01-05 12:10:27 [PIL.Image] DEBUG: Importing SunImagePlugin
+2020-01-05 12:10:27 [PIL.Image] DEBUG: Importing TgaImagePlugin
+2020-01-05 12:10:27 [PIL.Image] DEBUG: Importing TiffImagePlugin
+2020-01-05 12:10:27 [PIL.Image] DEBUG: Importing WebPImagePlugin
+2020-01-05 12:10:27 [PIL.Image] DEBUG: Importing WmfImagePlugin
+2020-01-05 12:10:27 [PIL.Image] DEBUG: Importing XbmImagePlugin
+2020-01-05 12:10:27 [PIL.Image] DEBUG: Importing XpmImagePlugin
+2020-01-05 12:10:27 [PIL.Image] DEBUG: Importing XVThumbImagePlugin
+2020-01-05 12:10:33 [kc_slave] DEBUG: 文章parse---
+2020-01-05 12:10:38 [kc_slave] DEBUG: 文章parse 栏目: 钱币大卖场
+2020-01-05 12:10:42 [kc_slave] DEBUG: trade_level URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105 总经理第5年
+2020-01-05 12:10:42 [kc_slave] DEBUG: credit_score URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105 45245
+2020-01-05 12:10:42 [kc_slave] DEBUG: score_count URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105 1698
+2020-01-05 12:10:42 [kc_slave] DEBUG: post_count URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105 117176
+2020-01-05 12:10:42 [kc_slave] DEBUG: post_score URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105 2044040
+2020-01-05 12:10:42 [kc_slave] DEBUG: register_time URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105 2007年5月21日
+2020-01-05 12:10:42 [kc_slave] DEBUG: 信息 ['总经理第14年', '认证员注：交易级别有效期至2020年6月5日。', '姓名：常洪昌（已通过身份核查，号码一致，照片一致）', '地址：北京市西城区黄寺大街23号A1025号', '（3036信箱马甸福利特新邮币卡市场一楼A1025号）北京洪昌中钱商贸有限公司(邮编100120)', '手机：15910876999\xa0\xa0\xa0\xa015910626999\xa0\xa0办公电话010--62351599', '微信在线：A168666999BCD\xa0\xa0 QQ在线530700366\xa0\xa0\xa0\xa0 ', '平安卡：6230 5820 0000 9055 503\xa0\xa0 常洪昌（免汇费） ', '华夏卡：6230 2020 1117 5578\xa0\xa0\xa0\xa0\xa0\xa0 常洪昌（免汇费）', '中行卡：621 786 010 000 155 2133\xa0\xa0常洪昌', '农行卡：6228 4900 1800 5775 077\xa0\xa0 常洪昌', '工行卡：6222 0802 0002 5528 780\xa0\xa0 常洪昌', '建行卡：4340\xa0\xa0 6100\xa0\xa0 1307\xa0\xa08768\xa0\xa0常洪昌', '邮政卡：622 188 100 002 717 9308\xa0\xa0常洪昌', '民生卡：622 619 010 047\xa0\xa08720\xa0\xa0\xa0\xa0 常洪昌', '电子邮件:2063575858@qq.com', '经营范围:（一）各种分值评级币、批发12345版成套纸*币、成套豹子号、联体钞、纪念钞、纪念币、金银币、金银条、批发各种成套礼品', '（二）评级币送评总代理：钱币美国评级大陆总部北京分部全国钱币评级送评总代理 （您只要把要想评级的单枚单套各种面值钱币：金币、银币、纪念币、各种硬*币、银元、联体钞、奥运大陆绿钞、龙钞、建国钞、外汇券、一版纸*币、二版纸*币、三版纸*币、四版纸*币、五版纸*币、港澳台纸*币、各种邮票，经快递安全寄给本部，经美国总部评级后，大陆总部经本部安全转回给您，具体电联告知您费用，电话15910876999\xa0\xa015910626999\xa0\xa0\xa0\xa0微信A168666999BCD 专用QQ在线2227239068请加）']
+2020-01-05 12:10:42 [kc_slave] DEBUG: remark URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105 交易级别有效期至2020年6月5日。
+2020-01-05 12:10:42 [kc_slave] DEBUG: name URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105 常洪昌
+2020-01-05 12:10:42 [kc_slave] DEBUG: address URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105 北京市西城区黄寺大街23号A1025号
+2020-01-05 12:10:42 [kc_slave] DEBUG: fixed_phone URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105 None
+2020-01-05 12:10:42 [kc_slave] DEBUG: phone_1 URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105 15910876999
+2020-01-05 12:10:42 [kc_slave] DEBUG: phone_2 URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105 15910626999
+2020-01-05 12:10:42 [kc_slave] DEBUG: 文章parse 文章URl http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105 用户信息 {'address': '北京市西城区黄寺大街23号A1025号',
+ 'credit_score': '45245',
+ 'fixed_phone': '',
+ 'name': '常洪昌',
+ 'phone_1': '15910876999',
+ 'phone_2': '15910626999',
+ 'post_count': '117176',
+ 'post_score': '2044040',
+ 'register_time': '2007年5月21日',
+ 'remark': '交易级别有效期至2020年6月5日。',
+ 'score_count': '1698',
+ 'trade_level': '总经理第5年',
+ 'userid': '北京文昌中钱金币'}
+2020-01-05 12:10:42 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=23167420&page=58> (failed 1 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 12:10:42 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=23192645&page=58> (failed 1 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 12:10:42 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=23175230&page=58> (failed 1 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 12:10:42 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21701601&page=105> (failed 1 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 12:10:42 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=23191420&page=58> (failed 1 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 12:10:42 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=23201886&page=58> (failed 1 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 12:10:42 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=23192790&page=58> (failed 1 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 12:10:42 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105>
+{'category_name': '钱币大卖场', 'userid': '北京文昌中钱金币'}
+2020-01-05 12:10:42 [kc_slave] DEBUG: trade_level URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105 总经理第5年
+2020-01-05 12:10:42 [kc_slave] DEBUG: credit_score URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105 45245
+2020-01-05 12:10:42 [kc_slave] DEBUG: score_count URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105 1698
+2020-01-05 12:10:42 [kc_slave] DEBUG: post_count URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105 117176
+2020-01-05 12:10:42 [kc_slave] DEBUG: post_score URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105 2044040
+2020-01-05 12:10:42 [kc_slave] DEBUG: register_time URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105 2007年5月21日
+2020-01-05 12:10:42 [kc_slave] DEBUG: 信息 ['总经理第14年', '认证员注：交易级别有效期至2020年6月5日。', '姓名：常洪昌（已通过身份核查，号码一致，照片一致）', '地址：北京市西城区黄寺大街23号A1025号', '（3036信箱马甸福利特新邮币卡市场一楼A1025号）北京洪昌中钱商贸有限公司(邮编100120)', '手机：15910876999\xa0\xa0\xa0\xa015910626999\xa0\xa0办公电话010--62351599', '微信在线：A168666999BCD\xa0\xa0 QQ在线530700366\xa0\xa0\xa0\xa0 ', '平安卡：6230 5820 0000 9055 503\xa0\xa0 常洪昌（免汇费） ', '华夏卡：6230 2020 1117 5578\xa0\xa0\xa0\xa0\xa0\xa0 常洪昌（免汇费）', '中行卡：621 786 010 000 155 2133\xa0\xa0常洪昌', '农行卡：6228 4900 1800 5775 077\xa0\xa0 常洪昌', '工行卡：6222 0802 0002 5528 780\xa0\xa0 常洪昌', '建行卡：4340\xa0\xa0 6100\xa0\xa0 1307\xa0\xa08768\xa0\xa0常洪昌', '邮政卡：622 188 100 002 717 9308\xa0\xa0常洪昌', '民生卡：622 619 010 047\xa0\xa08720\xa0\xa0\xa0\xa0 常洪昌', '电子邮件:2063575858@qq.com', '经营范围:（一）各种分值评级币、批发12345版成套纸*币、成套豹子号、联体钞、纪念钞、纪念币、金银币、金银条、批发各种成套礼品', '（二）评级币送评总代理：钱币美国评级大陆总部北京分部全国钱币评级送评总代理 （您只要把要想评级的单枚单套各种面值钱币：金币、银币、纪念币、各种硬*币、银元、联体钞、奥运大陆绿钞、龙钞、建国钞、外汇券、一版纸*币、二版纸*币、三版纸*币、四版纸*币、五版纸*币、港澳台纸*币、各种邮票，经快递安全寄给本部，经美国总部评级后，大陆总部经本部安全转回给您，具体电联告知您费用，电话15910876999\xa0\xa015910626999\xa0\xa0\xa0\xa0微信A168666999BCD 专用QQ在线2227239068请加）']
+2020-01-05 12:10:42 [kc_slave] DEBUG: remark URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105 交易级别有效期至2020年6月5日。
+2020-01-05 12:10:42 [kc_slave] DEBUG: name URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105 常洪昌
+2020-01-05 12:10:42 [kc_slave] DEBUG: address URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105 北京市西城区黄寺大街23号A1025号
+2020-01-05 12:10:42 [kc_slave] DEBUG: fixed_phone URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105 None
+2020-01-05 12:10:42 [kc_slave] DEBUG: phone_1 URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105 15910876999
+2020-01-05 12:10:42 [kc_slave] DEBUG: phone_2 URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105 15910626999
+2020-01-05 12:10:42 [kc_slave] DEBUG: 文章parse 文章URl http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105 用户信息 {'address': '北京市西城区黄寺大街23号A1025号',
+ 'credit_score': '45245',
+ 'fixed_phone': '',
+ 'name': '常洪昌',
+ 'phone_1': '15910876999',
+ 'phone_2': '15910626999',
+ 'post_count': '117176',
+ 'post_score': '2044040',
+ 'register_time': '2007年5月21日',
+ 'remark': '交易级别有效期至2020年6月5日。',
+ 'score_count': '1698',
+ 'trade_level': '总经理第5年',
+ 'userid': '北京文昌中钱金币'}
+2020-01-05 12:10:42 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:10:42 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:10:42 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:10:42 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:10:42 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:10:42 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:10:42 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:10:42 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:10:42 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:10:42 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:10:42 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:10:42 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:10:42 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:10:42 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:10:42 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105>
+{'address': '北京市西城区黄寺大街23号A1025号',
+ 'credit_score': '45245',
+ 'fixed_phone': '',
+ 'name': '常洪昌',
+ 'phone_1': '15910876999',
+ 'phone_2': '15910626999',
+ 'post_count': '117176',
+ 'post_score': '2044040',
+ 'register_time': '2007年5月21日',
+ 'remark': '交易级别有效期至2020年6月5日。',
+ 'score_count': '1698',
+ 'trade_level': '总经理第5年',
+ 'userid': '北京文昌中钱金币'}
+2020-01-05 12:10:42 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105>
+{'category_name': '钱币大卖场', 'userid': '北京文昌中钱金币'}
+2020-01-05 12:10:42 [kc_slave] DEBUG: trade_level URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105 总经理第5年
+2020-01-05 12:10:42 [kc_slave] DEBUG: credit_score URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105 45245
+2020-01-05 12:10:42 [kc_slave] DEBUG: score_count URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105 1698
+2020-01-05 12:10:42 [kc_slave] DEBUG: post_count URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105 117176
+2020-01-05 12:10:42 [kc_slave] DEBUG: post_score URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105 2044040
+2020-01-05 12:10:42 [kc_slave] DEBUG: register_time URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105 2007年5月21日
+2020-01-05 12:10:42 [kc_slave] DEBUG: 信息 ['总经理第14年', '认证员注：交易级别有效期至2020年6月5日。', '姓名：常洪昌（已通过身份核查，号码一致，照片一致）', '地址：北京市西城区黄寺大街23号A1025号', '（3036信箱马甸福利特新邮币卡市场一楼A1025号）北京洪昌中钱商贸有限公司(邮编100120)', '手机：15910876999\xa0\xa0\xa0\xa015910626999\xa0\xa0办公电话010--62351599', '微信在线：A168666999BCD\xa0\xa0 QQ在线530700366\xa0\xa0\xa0\xa0 ', '平安卡：6230 5820 0000 9055 503\xa0\xa0 常洪昌（免汇费） ', '华夏卡：6230 2020 1117 5578\xa0\xa0\xa0\xa0\xa0\xa0 常洪昌（免汇费）', '中行卡：621 786 010 000 155 2133\xa0\xa0常洪昌', '农行卡：6228 4900 1800 5775 077\xa0\xa0 常洪昌', '工行卡：6222 0802 0002 5528 780\xa0\xa0 常洪昌', '建行卡：4340\xa0\xa0 6100\xa0\xa0 1307\xa0\xa08768\xa0\xa0常洪昌', '邮政卡：622 188 100 002 717 9308\xa0\xa0常洪昌', '民生卡：622 619 010 047\xa0\xa08720\xa0\xa0\xa0\xa0 常洪昌', '电子邮件:2063575858@qq.com', '经营范围:（一）各种分值评级币、批发12345版成套纸*币、成套豹子号、联体钞、纪念钞、纪念币、金银币、金银条、批发各种成套礼品', '（二）评级币送评总代理：钱币美国评级大陆总部北京分部全国钱币评级送评总代理 （您只要把要想评级的单枚单套各种面值钱币：金币、银币、纪念币、各种硬*币、银元、联体钞、奥运大陆绿钞、龙钞、建国钞、外汇券、一版纸*币、二版纸*币、三版纸*币、四版纸*币、五版纸*币、港澳台纸*币、各种邮票，经快递安全寄给本部，经美国总部评级后，大陆总部经本部安全转回给您，具体电联告知您费用，电话15910876999\xa0\xa015910626999\xa0\xa0\xa0\xa0微信A168666999BCD 专用QQ在线2227239068请加）']
+2020-01-05 12:10:42 [kc_slave] DEBUG: remark URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105 交易级别有效期至2020年6月5日。
+2020-01-05 12:10:42 [kc_slave] DEBUG: name URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105 常洪昌
+2020-01-05 12:10:42 [kc_slave] DEBUG: address URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105 北京市西城区黄寺大街23号A1025号
+2020-01-05 12:10:42 [kc_slave] DEBUG: fixed_phone URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105 None
+2020-01-05 12:10:42 [kc_slave] DEBUG: phone_1 URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105 15910876999
+2020-01-05 12:10:42 [kc_slave] DEBUG: phone_2 URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105 15910626999
+2020-01-05 12:10:42 [kc_slave] DEBUG: 文章parse 文章URl http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105 用户信息 {'address': '北京市西城区黄寺大街23号A1025号',
+ 'credit_score': '45245',
+ 'fixed_phone': '',
+ 'name': '常洪昌',
+ 'phone_1': '15910876999',
+ 'phone_2': '15910626999',
+ 'post_count': '117176',
+ 'post_score': '2044040',
+ 'register_time': '2007年5月21日',
+ 'remark': '交易级别有效期至2020年6月5日。',
+ 'score_count': '1698',
+ 'trade_level': '总经理第5年',
+ 'userid': '北京文昌中钱金币'}
+2020-01-05 12:10:42 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105>
+{'address': '北京市西城区黄寺大街23号A1025号',
+ 'credit_score': '45245',
+ 'fixed_phone': '',
+ 'name': '常洪昌',
+ 'phone_1': '15910876999',
+ 'phone_2': '15910626999',
+ 'post_count': '117176',
+ 'post_score': '2044040',
+ 'register_time': '2007年5月21日',
+ 'remark': '交易级别有效期至2020年6月5日。',
+ 'score_count': '1698',
+ 'trade_level': '总经理第5年',
+ 'userid': '北京文昌中钱金币'}
+2020-01-05 12:10:42 [kc_slave] DEBUG: trade_level URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105 总经理第5年
+2020-01-05 12:10:42 [kc_slave] DEBUG: credit_score URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105 45245
+2020-01-05 12:10:42 [kc_slave] DEBUG: score_count URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105 1698
+2020-01-05 12:10:42 [kc_slave] DEBUG: post_count URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105 117176
+2020-01-05 12:10:42 [kc_slave] DEBUG: post_score URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105 2044040
+2020-01-05 12:10:42 [kc_slave] DEBUG: register_time URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105 2007年5月21日
+2020-01-05 12:10:42 [kc_slave] DEBUG: 信息 ['总经理第14年', '认证员注：交易级别有效期至2020年6月5日。', '姓名：常洪昌（已通过身份核查，号码一致，照片一致）', '地址：北京市西城区黄寺大街23号A1025号', '（3036信箱马甸福利特新邮币卡市场一楼A1025号）北京洪昌中钱商贸有限公司(邮编100120)', '手机：15910876999\xa0\xa0\xa0\xa015910626999\xa0\xa0办公电话010--62351599', '微信在线：A168666999BCD\xa0\xa0 QQ在线530700366\xa0\xa0\xa0\xa0 ', '平安卡：6230 5820 0000 9055 503\xa0\xa0 常洪昌（免汇费） ', '华夏卡：6230 2020 1117 5578\xa0\xa0\xa0\xa0\xa0\xa0 常洪昌（免汇费）', '中行卡：621 786 010 000 155 2133\xa0\xa0常洪昌', '农行卡：6228 4900 1800 5775 077\xa0\xa0 常洪昌', '工行卡：6222 0802 0002 5528 780\xa0\xa0 常洪昌', '建行卡：4340\xa0\xa0 6100\xa0\xa0 1307\xa0\xa08768\xa0\xa0常洪昌', '邮政卡：622 188 100 002 717 9308\xa0\xa0常洪昌', '民生卡：622 619 010 047\xa0\xa08720\xa0\xa0\xa0\xa0 常洪昌', '电子邮件:2063575858@qq.com', '经营范围:（一）各种分值评级币、批发12345版成套纸*币、成套豹子号、联体钞、纪念钞、纪念币、金银币、金银条、批发各种成套礼品', '（二）评级币送评总代理：钱币美国评级大陆总部北京分部全国钱币评级送评总代理 （您只要把要想评级的单枚单套各种面值钱币：金币、银币、纪念币、各种硬*币、银元、联体钞、奥运大陆绿钞、龙钞、建国钞、外汇券、一版纸*币、二版纸*币、三版纸*币、四版纸*币、五版纸*币、港澳台纸*币、各种邮票，经快递安全寄给本部，经美国总部评级后，大陆总部经本部安全转回给您，具体电联告知您费用，电话15910876999\xa0\xa015910626999\xa0\xa0\xa0\xa0微信A168666999BCD 专用QQ在线2227239068请加）']
+2020-01-05 12:10:42 [kc_slave] DEBUG: remark URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105 交易级别有效期至2020年6月5日。
+2020-01-05 12:10:42 [kc_slave] DEBUG: name URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105 常洪昌
+2020-01-05 12:10:42 [kc_slave] DEBUG: address URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105 北京市西城区黄寺大街23号A1025号
+2020-01-05 12:10:42 [kc_slave] DEBUG: fixed_phone URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105 None
+2020-01-05 12:10:42 [kc_slave] DEBUG: phone_1 URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105 15910876999
+2020-01-05 12:10:42 [kc_slave] DEBUG: phone_2 URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105 15910626999
+2020-01-05 12:10:42 [kc_slave] DEBUG: 文章parse 文章URl http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105 用户信息 {'address': '北京市西城区黄寺大街23号A1025号',
+ 'credit_score': '45245',
+ 'fixed_phone': '',
+ 'name': '常洪昌',
+ 'phone_1': '15910876999',
+ 'phone_2': '15910626999',
+ 'post_count': '117176',
+ 'post_score': '2044040',
+ 'register_time': '2007年5月21日',
+ 'remark': '交易级别有效期至2020年6月5日。',
+ 'score_count': '1698',
+ 'trade_level': '总经理第5年',
+ 'userid': '北京文昌中钱金币'}
+2020-01-05 12:10:42 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105>
+{'category_name': '钱币大卖场', 'userid': '北京文昌中钱金币'}
+2020-01-05 12:10:42 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105>
+{'address': '北京市西城区黄寺大街23号A1025号',
+ 'credit_score': '45245',
+ 'fixed_phone': '',
+ 'name': '常洪昌',
+ 'phone_1': '15910876999',
+ 'phone_2': '15910626999',
+ 'post_count': '117176',
+ 'post_score': '2044040',
+ 'register_time': '2007年5月21日',
+ 'remark': '交易级别有效期至2020年6月5日。',
+ 'score_count': '1698',
+ 'trade_level': '总经理第5年',
+ 'userid': '北京文昌中钱金币'}
+2020-01-05 12:10:42 [kc_slave] DEBUG: 文章parse 无下一页
+2020-01-05 12:10:42 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105>
+{'category_name': '钱币大卖场', 'userid': '北京文昌中钱金币'}
+2020-01-05 12:10:42 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687278&page=105>
+{'address': '北京市西城区黄寺大街23号A1025号',
+ 'credit_score': '45245',
+ 'fixed_phone': '',
+ 'name': '常洪昌',
+ 'phone_1': '15910876999',
+ 'phone_2': '15910626999',
+ 'post_count': '117176',
+ 'post_score': '2044040',
+ 'register_time': '2007年5月21日',
+ 'remark': '交易级别有效期至2020年6月5日。',
+ 'score_count': '1698',
+ 'trade_level': '总经理第5年',
+ 'userid': '北京文昌中钱金币'}
+2020-01-05 12:10:43 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21707917&page=105> (failed 1 times): Connection was refused by other side: 61: Connection refused.
+2020-01-05 12:10:43 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:10:43 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:10:43 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21718637&page=105> (failed 1 times): Connection was refused by other side: 61: Connection refused.
+2020-01-05 12:10:43 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:10:43 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:10:48 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21711324&page=105> (failed 1 times): Connection was refused by other side: 61: Connection refused.
+2020-01-05 12:10:48 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:10:48 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:11:08 [scrapy.extensions.logstats] INFO: Crawled 1 pages (at 1 pages/min), scraped 8 items (at 8 items/min)
+2020-01-05 12:12:00 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21678413&page=105> (failed 1 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 12:12:00 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:12:00 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:12:01 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21682140&page=105> (failed 1 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 12:12:01 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:12:01 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:12:03 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21561062&page=105> (failed 1 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 12:12:03 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:12:03 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:12:03 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=23175230&page=58> (failed 2 times): Connection was refused by other side: 61: Connection refused.
+2020-01-05 12:12:03 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:12:03 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:12:04 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=23192645&page=58> (failed 2 times): Connection was refused by other side: 61: Connection refused.
+2020-01-05 12:12:04 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:12:04 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:12:05 [scrapy.downloadermiddlewares.retry] DEBUG: Gave up retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=23092288&page=58> (failed 3 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 12:12:05 [scrapy.core.scraper] ERROR: Error downloading <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=23092288&page=58>
+Traceback (most recent call last):
+  File "/Users/tmackan/develop_env/flask0.12/lib/python3.5/site-packages/scrapy/core/downloader/middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+twisted.internet.error.TCPTimedOutError: TCP connection timed out: 60: Operation timed out.
+2020-01-05 12:12:06 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=23163368&page=58> (failed 2 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 12:12:06 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:12:06 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:12:07 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21718637&page=105> (failed 2 times): Connection was refused by other side: 61: Connection refused.
+2020-01-05 12:12:07 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:12:07 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:12:08 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=23201886&page=58> (failed 2 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 12:12:08 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:12:08 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:12:08 [scrapy.extensions.logstats] INFO: Crawled 1 pages (at 0 pages/min), scraped 8 items (at 0 items/min)
+2020-01-05 12:12:09 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21711324&page=105> (referer: http://www.kc0011.net)
+2020-01-05 12:12:09 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=23192790&page=58> (failed 2 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 12:12:09 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:12:09 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:12:09 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21678413&page=105> (failed 2 times): Connection was refused by other side: 61: Connection refused.
+2020-01-05 12:12:09 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:12:09 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:16:06 [kc_slave] DEBUG: 文章parse---
+2020-01-05 12:16:12 [kc_slave] DEBUG: 文章parse 栏目: 钱币大卖场
+2020-01-05 12:16:12 [kc_slave] DEBUG: trade_level URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21711324&page=105 营销员第4年
+2020-01-05 12:16:12 [kc_slave] DEBUG: credit_score URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21711324&page=105 1701
+2020-01-05 12:16:12 [kc_slave] DEBUG: score_count URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21711324&page=105 148
+2020-01-05 12:16:12 [kc_slave] DEBUG: post_count URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21711324&page=105 3457
+2020-01-05 12:16:12 [kc_slave] DEBUG: post_score URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21711324&page=105 19615
+2020-01-05 12:16:12 [kc_slave] DEBUG: register_time URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21711324&page=105 2016年6月13日
+2020-01-05 12:16:12 [kc_slave] DEBUG: 信息 ['认证员注：交易级别有效期至2020年7月14日。', '姓名: 朱乐乐（已通过身份核查，号码一致，照片一致）', '地址: 浙江省瑞安市东山街道北龙凤凰头村\xa0\xa0\xa0\xa0邮编: 325200', '电话: 18815134666\xa0\xa00577-65786521', '建行：6217 0014 2000 5577 047 朱乐乐']
+2020-01-05 12:16:12 [kc_slave] DEBUG: remark URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21711324&page=105 交易级别有效期至2020年7月14日。
+2020-01-05 12:16:12 [kc_slave] DEBUG: name URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21711324&page=105  朱乐乐
+2020-01-05 12:16:12 [kc_slave] DEBUG: address URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21711324&page=105  浙江省瑞安市东山街道北龙凤凰头村    邮编
+2020-01-05 12:16:12 [kc_slave] DEBUG: fixed_phone URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21711324&page=105 0577-6578652
+2020-01-05 12:16:12 [kc_slave] DEBUG: phone_1 URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21711324&page=105 18815134666
+2020-01-05 12:16:12 [kc_slave] DEBUG: phone_2 URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21711324&page=105 None
+2020-01-05 12:16:12 [kc_slave] DEBUG: 文章parse 文章URl http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21711324&page=105 用户信息 {'address': ' 浙江省瑞安市东山街道北龙凤凰头村\xa0\xa0\xa0\xa0邮编',
+ 'credit_score': '1701',
+ 'fixed_phone': '0577-6578652',
+ 'name': ' 朱乐乐',
+ 'phone_1': '18815134666',
+ 'phone_2': '',
+ 'post_count': '3457',
+ 'post_score': '19615',
+ 'register_time': '2016年6月13日',
+ 'remark': '交易级别有效期至2020年7月14日。',
+ 'score_count': '148',
+ 'trade_level': '营销员第4年',
+ 'userid': '优乐美'}
+2020-01-05 12:16:12 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21707917&page=105> (failed 2 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 12:16:12 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=23167420&page=58> (failed 2 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 12:16:12 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=23191420&page=58> (failed 2 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 12:16:12 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21701601&page=105> (failed 2 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 12:16:12 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21711324&page=105>
+{'category_name': '钱币大卖场', 'userid': '优乐美'}
+2020-01-05 12:16:12 [scrapy.extensions.logstats] INFO: Crawled 2 pages (at 1 pages/min), scraped 9 items (at 1 items/min)
+2020-01-05 12:16:12 [kc_slave] DEBUG: trade_level URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21711324&page=105 营销员第4年
+2020-01-05 12:16:12 [kc_slave] DEBUG: credit_score URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21711324&page=105 1701
+2020-01-05 12:16:12 [kc_slave] DEBUG: score_count URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21711324&page=105 148
+2020-01-05 12:16:12 [kc_slave] DEBUG: post_count URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21711324&page=105 3457
+2020-01-05 12:16:12 [kc_slave] DEBUG: post_score URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21711324&page=105 19615
+2020-01-05 12:16:12 [kc_slave] DEBUG: register_time URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21711324&page=105 2016年6月13日
+2020-01-05 12:16:12 [kc_slave] DEBUG: 信息 ['认证员注：交易级别有效期至2020年7月14日。', '姓名: 朱乐乐（已通过身份核查，号码一致，照片一致）', '地址: 浙江省瑞安市东山街道北龙凤凰头村\xa0\xa0\xa0\xa0邮编: 325200', '电话: 18815134666\xa0\xa00577-65786521', '建行：6217 0014 2000 5577 047 朱乐乐']
+2020-01-05 12:16:12 [kc_slave] DEBUG: remark URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21711324&page=105 交易级别有效期至2020年7月14日。
+2020-01-05 12:16:12 [kc_slave] DEBUG: name URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21711324&page=105  朱乐乐
+2020-01-05 12:16:12 [kc_slave] DEBUG: address URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21711324&page=105  浙江省瑞安市东山街道北龙凤凰头村    邮编
+2020-01-05 12:16:12 [kc_slave] DEBUG: fixed_phone URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21711324&page=105 0577-6578652
+2020-01-05 12:16:12 [kc_slave] DEBUG: phone_1 URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21711324&page=105 18815134666
+2020-01-05 12:16:12 [kc_slave] DEBUG: phone_2 URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21711324&page=105 None
+2020-01-05 12:16:12 [kc_slave] DEBUG: 文章parse 文章URl http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21711324&page=105 用户信息 {'address': ' 浙江省瑞安市东山街道北龙凤凰头村\xa0\xa0\xa0\xa0邮编',
+ 'credit_score': '1701',
+ 'fixed_phone': '0577-6578652',
+ 'name': ' 朱乐乐',
+ 'phone_1': '18815134666',
+ 'phone_2': '',
+ 'post_count': '3457',
+ 'post_score': '19615',
+ 'register_time': '2016年6月13日',
+ 'remark': '交易级别有效期至2020年7月14日。',
+ 'score_count': '148',
+ 'trade_level': '营销员第4年',
+ 'userid': '优乐美'}
+2020-01-05 12:16:12 [kc_slave] DEBUG: trade_level URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21711324&page=105 营销员第4年
+2020-01-05 12:16:12 [kc_slave] DEBUG: credit_score URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21711324&page=105 1701
+2020-01-05 12:16:12 [kc_slave] DEBUG: score_count URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21711324&page=105 148
+2020-01-05 12:16:12 [kc_slave] DEBUG: post_count URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21711324&page=105 3457
+2020-01-05 12:16:12 [kc_slave] DEBUG: post_score URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21711324&page=105 19615
+2020-01-05 12:16:12 [kc_slave] DEBUG: register_time URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21711324&page=105 2016年6月13日
+2020-01-05 12:16:12 [kc_slave] DEBUG: 信息 ['认证员注：交易级别有效期至2020年7月14日。', '姓名: 朱乐乐（已通过身份核查，号码一致，照片一致）', '地址: 浙江省瑞安市东山街道北龙凤凰头村\xa0\xa0\xa0\xa0邮编: 325200', '电话: 18815134666\xa0\xa00577-65786521', '建行：6217 0014 2000 5577 047 朱乐乐']
+2020-01-05 12:16:12 [kc_slave] DEBUG: remark URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21711324&page=105 交易级别有效期至2020年7月14日。
+2020-01-05 12:16:12 [kc_slave] DEBUG: name URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21711324&page=105  朱乐乐
+2020-01-05 12:16:12 [kc_slave] DEBUG: address URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21711324&page=105  浙江省瑞安市东山街道北龙凤凰头村    邮编
+2020-01-05 12:16:12 [kc_slave] DEBUG: fixed_phone URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21711324&page=105 0577-6578652
+2020-01-05 12:16:12 [kc_slave] DEBUG: phone_1 URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21711324&page=105 18815134666
+2020-01-05 12:16:12 [kc_slave] DEBUG: phone_2 URL http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21711324&page=105 None
+2020-01-05 12:16:12 [kc_slave] DEBUG: 文章parse 文章URl http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21711324&page=105 用户信息 {'address': ' 浙江省瑞安市东山街道北龙凤凰头村\xa0\xa0\xa0\xa0邮编',
+ 'credit_score': '1701',
+ 'fixed_phone': '0577-6578652',
+ 'name': ' 朱乐乐',
+ 'phone_1': '18815134666',
+ 'phone_2': '',
+ 'post_count': '3457',
+ 'post_score': '19615',
+ 'register_time': '2016年6月13日',
+ 'remark': '交易级别有效期至2020年7月14日。',
+ 'score_count': '148',
+ 'trade_level': '营销员第4年',
+ 'userid': '优乐美'}
+2020-01-05 12:16:12 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:16:13 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:16:13 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:16:13 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:16:13 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:16:13 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:16:13 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:16:13 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:16:13 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21711324&page=105>
+{'address': ' 浙江省瑞安市东山街道北龙凤凰头村\xa0\xa0\xa0\xa0邮编',
+ 'credit_score': '1701',
+ 'fixed_phone': '0577-6578652',
+ 'name': ' 朱乐乐',
+ 'phone_1': '18815134666',
+ 'phone_2': '',
+ 'post_count': '3457',
+ 'post_score': '19615',
+ 'register_time': '2016年6月13日',
+ 'remark': '交易级别有效期至2020年7月14日。',
+ 'score_count': '148',
+ 'trade_level': '营销员第4年',
+ 'userid': '优乐美'}
+2020-01-05 12:16:13 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21711324&page=105>
+{'category_name': '钱币大卖场', 'userid': '优乐美'}
+2020-01-05 12:16:13 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21711324&page=105>
+{'address': ' 浙江省瑞安市东山街道北龙凤凰头村\xa0\xa0\xa0\xa0邮编',
+ 'credit_score': '1701',
+ 'fixed_phone': '0577-6578652',
+ 'name': ' 朱乐乐',
+ 'phone_1': '18815134666',
+ 'phone_2': '',
+ 'post_count': '3457',
+ 'post_score': '19615',
+ 'register_time': '2016年6月13日',
+ 'remark': '交易级别有效期至2020年7月14日。',
+ 'score_count': '148',
+ 'trade_level': '营销员第4年',
+ 'userid': '优乐美'}
+2020-01-05 12:16:13 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21711324&page=105>
+{'category_name': '钱币大卖场', 'userid': '优乐美'}
+2020-01-05 12:16:13 [kc_slave] DEBUG: 文章parse 无下一页
+2020-01-05 12:16:13 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21711324&page=105>
+{'address': ' 浙江省瑞安市东山街道北龙凤凰头村\xa0\xa0\xa0\xa0邮编',
+ 'credit_score': '1701',
+ 'fixed_phone': '0577-6578652',
+ 'name': ' 朱乐乐',
+ 'phone_1': '18815134666',
+ 'phone_2': '',
+ 'post_count': '3457',
+ 'post_score': '19615',
+ 'register_time': '2016年6月13日',
+ 'remark': '交易级别有效期至2020年7月14日。',
+ 'score_count': '148',
+ 'trade_level': '营销员第4年',
+ 'userid': '优乐美'}
+2020-01-05 12:16:13 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21682140&page=105> (failed 2 times): Connection was refused by other side: 61: Connection refused.
+2020-01-05 12:16:13 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:16:13 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:16:14 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21561062&page=105> (failed 2 times): Connection was refused by other side: 61: Connection refused.
+2020-01-05 12:16:14 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:16:14 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:16:15 [scrapy.downloadermiddlewares.retry] DEBUG: Gave up retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=23175230&page=58> (failed 3 times): Connection was refused by other side: 61: Connection refused.
+2020-01-05 12:16:15 [scrapy.core.scraper] ERROR: Error downloading <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=23175230&page=58>
+Traceback (most recent call last):
+  File "/Users/tmackan/develop_env/flask0.12/lib/python3.5/site-packages/scrapy/core/downloader/middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+twisted.internet.error.ConnectionRefusedError: Connection was refused by other side: 61: Connection refused.
+2020-01-05 12:16:17 [scrapy.downloadermiddlewares.retry] DEBUG: Gave up retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=23163368&page=58> (failed 3 times): Connection was refused by other side: 61: Connection refused.
+2020-01-05 12:16:17 [scrapy.core.scraper] ERROR: Error downloading <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=23163368&page=58>
+Traceback (most recent call last):
+  File "/Users/tmackan/develop_env/flask0.12/lib/python3.5/site-packages/scrapy/core/downloader/middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+twisted.internet.error.ConnectionRefusedError: Connection was refused by other side: 61: Connection refused.
+2020-01-05 12:16:23 [scrapy.downloadermiddlewares.retry] DEBUG: Gave up retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21701601&page=105> (failed 3 times): Connection was refused by other side: 61: Connection refused.
+2020-01-05 12:16:23 [scrapy.core.scraper] ERROR: Error downloading <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21701601&page=105>
+Traceback (most recent call last):
+  File "/Users/tmackan/develop_env/flask0.12/lib/python3.5/site-packages/scrapy/core/downloader/middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+twisted.internet.error.ConnectionRefusedError: Connection was refused by other side: 61: Connection refused.
+2020-01-05 12:16:25 [scrapy.downloadermiddlewares.retry] DEBUG: Gave up retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21707917&page=105> (failed 3 times): Connection was refused by other side: 61: Connection refused.
+2020-01-05 12:16:25 [scrapy.core.scraper] ERROR: Error downloading <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21707917&page=105>
+Traceback (most recent call last):
+  File "/Users/tmackan/develop_env/flask0.12/lib/python3.5/site-packages/scrapy/core/downloader/middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+twisted.internet.error.ConnectionRefusedError: Connection was refused by other side: 61: Connection refused.
+2020-01-05 12:16:54 [scrapy.downloadermiddlewares.retry] DEBUG: Gave up retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=23201886&page=58> (failed 3 times): Connection was refused by other side: 61: Connection refused.
+2020-01-05 12:16:55 [scrapy.core.scraper] ERROR: Error downloading <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=23201886&page=58>
+Traceback (most recent call last):
+  File "/Users/tmackan/develop_env/flask0.12/lib/python3.5/site-packages/scrapy/core/downloader/middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+twisted.internet.error.ConnectionRefusedError: Connection was refused by other side: 61: Connection refused.
+2020-01-05 12:16:55 [scrapy.downloadermiddlewares.retry] DEBUG: Gave up retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21561062&page=105> (failed 3 times): Connection was refused by other side: 61: Connection refused.
+2020-01-05 12:16:55 [scrapy.core.scraper] ERROR: Error downloading <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21561062&page=105>
+Traceback (most recent call last):
+  File "/Users/tmackan/develop_env/flask0.12/lib/python3.5/site-packages/scrapy/core/downloader/middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+twisted.internet.error.ConnectionRefusedError: Connection was refused by other side: 61: Connection refused.
+2020-01-05 12:17:08 [scrapy.extensions.logstats] INFO: Crawled 2 pages (at 0 pages/min), scraped 14 items (at 5 items/min)
+2020-01-05 12:17:31 [scrapy.downloadermiddlewares.retry] DEBUG: Gave up retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=23192645&page=58> (failed 3 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 12:17:32 [scrapy.core.scraper] ERROR: Error downloading <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=23192645&page=58>
+Traceback (most recent call last):
+  File "/Users/tmackan/develop_env/flask0.12/lib/python3.5/site-packages/scrapy/core/downloader/middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+twisted.internet.error.TCPTimedOutError: TCP connection timed out: 60: Operation timed out.
+2020-01-05 12:17:33 [scrapy.downloadermiddlewares.retry] DEBUG: Gave up retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21718637&page=105> (failed 3 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 12:17:34 [scrapy.core.scraper] ERROR: Error downloading <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21718637&page=105>
+Traceback (most recent call last):
+  File "/Users/tmackan/develop_env/flask0.12/lib/python3.5/site-packages/scrapy/core/downloader/middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+twisted.internet.error.TCPTimedOutError: TCP connection timed out: 60: Operation timed out.
+2020-01-05 12:17:35 [scrapy.downloadermiddlewares.retry] DEBUG: Gave up retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=23192790&page=58> (failed 3 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 12:17:35 [scrapy.core.scraper] ERROR: Error downloading <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=23192790&page=58>
+Traceback (most recent call last):
+  File "/Users/tmackan/develop_env/flask0.12/lib/python3.5/site-packages/scrapy/core/downloader/middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+twisted.internet.error.TCPTimedOutError: TCP connection timed out: 60: Operation timed out.
+2020-01-05 12:17:36 [scrapy.downloadermiddlewares.retry] DEBUG: Gave up retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21678413&page=105> (failed 3 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 12:17:36 [scrapy.core.scraper] ERROR: Error downloading <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21678413&page=105>
+Traceback (most recent call last):
+  File "/Users/tmackan/develop_env/flask0.12/lib/python3.5/site-packages/scrapy/core/downloader/middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+twisted.internet.error.TCPTimedOutError: TCP connection timed out: 60: Operation timed out.
+2020-01-05 12:17:37 [scrapy.downloadermiddlewares.retry] DEBUG: Gave up retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=23191420&page=58> (failed 3 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 12:17:37 [scrapy.core.scraper] ERROR: Error downloading <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=23191420&page=58>
+Traceback (most recent call last):
+  File "/Users/tmackan/develop_env/flask0.12/lib/python3.5/site-packages/scrapy/core/downloader/middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+twisted.internet.error.TCPTimedOutError: TCP connection timed out: 60: Operation timed out.
+2020-01-05 12:17:39 [scrapy.downloadermiddlewares.retry] DEBUG: Gave up retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=23167420&page=58> (failed 3 times): No route to host: 51: Network is unreachable.
+2020-01-05 12:17:39 [scrapy.core.scraper] ERROR: Error downloading <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=23167420&page=58>
+Traceback (most recent call last):
+  File "/Users/tmackan/develop_env/flask0.12/lib/python3.5/site-packages/scrapy/core/downloader/middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+twisted.internet.error.NoRouteError: No route to host: 51: Network is unreachable.
+2020-01-05 12:17:41 [scrapy.downloadermiddlewares.retry] DEBUG: Gave up retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21682140&page=105> (failed 3 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 12:17:41 [scrapy.core.scraper] ERROR: Error downloading <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21682140&page=105>
+Traceback (most recent call last):
+  File "/Users/tmackan/develop_env/flask0.12/lib/python3.5/site-packages/scrapy/core/downloader/middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+twisted.internet.error.TCPTimedOutError: TCP connection timed out: 60: Operation timed out.
+2020-01-05 12:17:42 [kc_slave] DEBUG: Read 16 requests from 'kc0011_slave:start_urls'
+2020-01-05 12:17:42 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:17:42 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:17:42 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:17:42 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:17:42 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:17:42 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:17:42 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:17:42 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:17:42 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:17:42 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:17:42 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:17:42 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:17:42 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:17:42 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:17:42 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:17:42 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:17:42 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:17:42 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:17:42 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:17:42 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:17:42 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:17:43 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:17:43 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:17:43 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:17:43 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:17:43 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:17:43 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:17:43 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:17:43 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:17:43 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:17:43 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:17:43 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:17:45 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21686216&page=104> (failed 1 times): Connection was refused by other side: 61: Connection refused.
+2020-01-05 12:17:45 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:17:45 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:17:47 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21725918&page=105> (failed 1 times): Connection was refused by other side: 61: Connection refused.
+2020-01-05 12:17:47 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:17:47 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:17:48 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21726201&page=105> (failed 1 times): Connection was refused by other side: 61: Connection refused.
+2020-01-05 12:17:48 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:17:48 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:17:52 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21732351&page=104> (failed 1 times): Connection was refused by other side: 61: Connection refused.
+2020-01-05 12:17:52 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 12:17:52 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 12:18:04 [scrapy.crawler] INFO: Received SIGINT, shutting down gracefully. Send again to force 
+2020-01-05 12:18:04 [scrapy.core.engine] INFO: Closing spider (shutdown)
+2020-01-05 12:18:08 [scrapy.extensions.logstats] INFO: Crawled 2 pages (at 0 pages/min), scraped 14 items (at 0 items/min)
+2020-01-05 12:18:56 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21727044&page=105> (failed 1 times): Connection was refused by other side: 61: Connection refused.
+2020-01-05 12:18:58 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21678539&page=104> (failed 1 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 12:18:58 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21679163&page=104> (failed 1 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 12:19:01 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21687229&page=105> (failed 1 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 12:19:04 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21749715&page=102> (failed 1 times): Connection was refused by other side: 61: Connection refused.
+2020-01-05 12:19:05 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21732290&page=104> (failed 1 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 12:19:07 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21732378&page=104> (failed 1 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 12:19:08 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21732530&page=104> (failed 1 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 12:19:08 [scrapy.extensions.logstats] INFO: Crawled 2 pages (at 0 pages/min), scraped 14 items (at 0 items/min)
+2020-01-05 12:19:09 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21725918&page=105> (failed 2 times): Connection was refused by other side: 61: Connection refused.
+2020-01-05 12:19:09 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21732351&page=104> (failed 2 times): Connection was refused by other side: 61: Connection refused.
+2020-01-05 12:19:09 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21732570&page=104> (failed 1 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 12:20:08 [scrapy.extensions.logstats] INFO: Crawled 2 pages (at 0 pages/min), scraped 14 items (at 0 items/min)
+2020-01-05 12:20:11 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21733226&page=104> (failed 1 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 12:20:13 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21739176&page=103> (failed 1 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 12:20:15 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21739342&page=103> (failed 1 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 12:20:19 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21686216&page=104> (failed 2 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 12:20:22 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21726201&page=105> (failed 2 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 12:20:22 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/exception_count': 63,
+ 'downloader/exception_type_count/twisted.internet.error.ConnectionRefusedError': 25,
+ 'downloader/exception_type_count/twisted.internet.error.NoRouteError': 1,
+ 'downloader/exception_type_count/twisted.internet.error.TCPTimedOutError': 37,
+ 'downloader/request_bytes': 39772,
+ 'downloader/request_count': 65,
+ 'downloader/request_method_count/GET': 65,
+ 'downloader/response_bytes': 34368,
+ 'downloader/response_count': 2,
+ 'downloader/response_status_count/200': 2,
+ 'finish_reason': 'shutdown',
+ 'finish_time': datetime.datetime(2020, 1, 5, 4, 20, 22, 897735),
+ 'item_scraped_count': 14,
+ 'log_count/DEBUG': 359,
+ 'log_count/ERROR': 14,
+ 'log_count/INFO': 19,
+ 'memusage/max': 124702720,
+ 'memusage/startup': 96182272,
+ 'response_received_count': 2,
+ 'retry/count': 49,
+ 'retry/max_reached': 14,
+ 'retry/reason_count/twisted.internet.error.ConnectionRefusedError': 19,
+ 'retry/reason_count/twisted.internet.error.TCPTimedOutError': 30,
+ 'scheduler/dequeued/redis': 65,
+ 'scheduler/enqueued/redis': 81,
+ 'start_time': datetime.datetime(2020, 1, 5, 4, 9, 8, 947786)}
+2020-01-05 12:20:22 [scrapy.core.engine] INFO: Spider closed (shutdown)
+2020-01-05 13:18:35 [scrapy.utils.log] INFO: Scrapy 1.6.0 started (bot: craw)
+2020-01-05 13:18:35 [scrapy.utils.log] INFO: Versions: lxml 4.3.3.0, libxml2 2.9.4, cssselect 1.0.3, parsel 1.5.1, w3lib 1.20.0, Twisted 19.2.0, Python 3.5.1 (v3.5.1:37a07cee5969, Dec  5 2015, 21:12:44) - [GCC 4.2.1 (Apple Inc. build 5666) (dot 3)], pyOpenSSL 16.2.0 (OpenSSL 1.0.2k  26 Jan 2017), cryptography 1.7.2, Platform Darwin-18.2.0-x86_64-i386-64bit
+2020-01-05 13:18:35 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'craw', 'DOWNLOAD_DELAY': 1, 'DUPEFILTER_CLASS': 'scrapy_redis.dupefilter.RFPDupeFilter', 'NEWSPIDER_MODULE': 'craw.spiders', 'SPIDER_MODULES': ['craw.spiders'], 'LOG_FILE': 'craw.log', 'SCHEDULER': 'scrapy_redis.scheduler.Scheduler', 'HTTPCACHE_ENABLED': True}
+2020-01-05 13:18:35 [scrapy.extensions.telnet] INFO: Telnet Password: aea0339432b2992d
+2020-01-05 13:18:35 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.telnet.TelnetConsole']
+2020-01-05 13:18:35 [kc_slave] INFO: Reading start URLs from redis key 'kc0011_slave:start_urls' (batch size: 16, encoding: utf-8
+2020-01-05 13:18:35 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'craw.middlewares.RandomUserAgent',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'craw.middlewares.ProxyMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats',
+ 'scrapy.downloadermiddlewares.httpcache.HttpCacheMiddleware']
+2020-01-05 13:18:35 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-01-05 13:18:35 [scrapy.middleware] INFO: Enabled item pipelines:
+['scrapy_redis.pipelines.RedisPipeline']
+2020-01-05 13:18:35 [scrapy.core.engine] INFO: Spider opened
+2020-01-05 13:18:35 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-01-05 13:18:35 [scrapy.extensions.httpcache] DEBUG: Using filesystem cache storage in /Users/tmackan/PycharmProjects/craw_bbs/.scrapy/httpcache
+2020-01-05 13:18:35 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2020-01-05 13:18:35 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:18:35 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:18:35 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:18:35 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:18:36 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:18:36 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:18:36 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:18:36 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:18:36 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:18:36 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:18:36 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:18:36 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:18:36 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:18:36 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:18:36 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:18:36 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:18:36 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:18:36 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:18:36 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:18:36 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:18:36 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:18:36 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:18:36 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:18:37 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:18:37 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:18:37 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:18:37 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:18:37 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:18:37 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:18:37 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:18:37 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:18:37 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:18:42 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21759521&page=102> (failed 1 times): Connection was refused by other side: 61: Connection refused.
+2020-01-05 13:18:42 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:18:42 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:18:43 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21759569&page=102> (failed 1 times): Connection was refused by other side: 61: Connection refused.
+2020-01-05 13:18:43 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:18:43 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:18:44 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=23293483&page=55> (failed 1 times): Connection was refused by other side: 61: Connection refused.
+2020-01-05 13:18:44 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:18:44 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:18:49 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=23296641&page=55> (failed 1 times): Connection was refused by other side: 61: Connection refused.
+2020-01-05 13:18:49 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:18:49 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:18:49 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=23297294&page=55> (failed 1 times): Connection was refused by other side: 61: Connection refused.
+2020-01-05 13:18:49 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:18:49 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:18:51 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=23312014&page=55> (failed 1 times): Connection was refused by other side: 61: Connection refused.
+2020-01-05 13:18:51 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:18:51 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:19:35 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-01-05 13:19:51 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21752656&page=102> (failed 1 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 13:19:51 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:19:51 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:19:52 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21753089&page=102> (failed 1 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 13:19:52 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:19:53 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:19:54 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21759315&page=102> (failed 1 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 13:19:54 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:19:54 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:19:55 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21759327&page=102> (failed 1 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 13:19:55 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:19:55 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:19:56 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21759360&page=102> (failed 1 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 13:19:56 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:19:56 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:19:58 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=23293483&page=55> (failed 2 times): Connection was refused by other side: 61: Connection refused.
+2020-01-05 13:19:58 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:19:58 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:20:00 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=23296635&page=55> (failed 1 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 13:20:00 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:20:01 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:20:01 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=23295009&page=55> (failed 1 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 13:20:02 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:20:02 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:20:06 [scrapy.crawler] INFO: Received SIGINT, shutting down gracefully. Send again to force 
+2020-01-05 13:20:06 [scrapy.core.engine] INFO: Closing spider (shutdown)
+2020-01-05 13:20:07 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=23271500&page=55> (failed 1 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 13:20:07 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21752656&page=102> (failed 2 times): Connection was refused by other side: 61: Connection refused.
+2020-01-05 13:20:31 [scrapy.utils.log] INFO: Scrapy 1.6.0 started (bot: craw)
+2020-01-05 13:20:31 [scrapy.utils.log] INFO: Versions: lxml 4.3.3.0, libxml2 2.9.4, cssselect 1.0.3, parsel 1.5.1, w3lib 1.20.0, Twisted 19.2.0, Python 3.5.1 (v3.5.1:37a07cee5969, Dec  5 2015, 21:12:44) - [GCC 4.2.1 (Apple Inc. build 5666) (dot 3)], pyOpenSSL 16.2.0 (OpenSSL 1.0.2k  26 Jan 2017), cryptography 1.7.2, Platform Darwin-18.2.0-x86_64-i386-64bit
+2020-01-05 13:20:31 [scrapy.crawler] INFO: Overridden settings: {'HTTPCACHE_ENABLED': True, 'DOWNLOAD_DELAY': 1, 'SPIDER_MODULES': ['craw.spiders'], 'SCHEDULER': 'scrapy_redis.scheduler.Scheduler', 'BOT_NAME': 'craw', 'NEWSPIDER_MODULE': 'craw.spiders', 'LOG_FILE': 'craw.log', 'DUPEFILTER_CLASS': 'scrapy_redis.dupefilter.RFPDupeFilter'}
+2020-01-05 13:20:31 [scrapy.extensions.telnet] INFO: Telnet Password: 295d90538b1d4bf8
+2020-01-05 13:20:31 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.telnet.TelnetConsole']
+2020-01-05 13:20:31 [kc_slave] INFO: Reading start URLs from redis key 'kc0011_slave:start_urls' (batch size: 16, encoding: utf-8
+2020-01-05 13:20:32 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'craw.middlewares.RandomUserAgent',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'craw.middlewares.ProxyMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats',
+ 'scrapy.downloadermiddlewares.httpcache.HttpCacheMiddleware']
+2020-01-05 13:20:32 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-01-05 13:20:32 [scrapy.middleware] INFO: Enabled item pipelines:
+['scrapy_redis.pipelines.RedisPipeline']
+2020-01-05 13:20:32 [scrapy.core.engine] INFO: Spider opened
+2020-01-05 13:20:32 [kc_slave] DEBUG: Resuming crawl (2 requests scheduled)
+2020-01-05 13:20:32 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-01-05 13:20:32 [scrapy.extensions.httpcache] DEBUG: Using filesystem cache storage in /Users/tmackan/PycharmProjects/craw_bbs/.scrapy/httpcache
+2020-01-05 13:20:32 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6024
+2020-01-05 13:20:32 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:20:32 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:20:33 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:20:33 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:20:33 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:20:33 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:20:33 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:20:33 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:20:33 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:20:33 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:20:34 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:20:34 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:20:34 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:20:34 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:20:34 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:20:34 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:20:34 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:20:34 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:20:34 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:20:34 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:20:34 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:20:34 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:20:35 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:20:35 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:20:35 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:20:35 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:20:35 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:20:35 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:20:35 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=23323082&page=55> (failed 1 times): Connection was refused by other side: 61: Connection refused.
+2020-01-05 13:20:35 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:20:35 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:20:35 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:20:35 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-01-05 13:20:35 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:20:35 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:20:35 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:20:36 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=23330467&page=55> (failed 1 times): Connection was refused by other side: 61: Connection refused.
+2020-01-05 13:20:36 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:20:36 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:20:38 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=22528412&page=68> (failed 1 times): Connection was refused by other side: 61: Connection refused.
+2020-01-05 13:20:38 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:20:39 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:20:40 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=22528433&page=68> (failed 1 times): Connection was refused by other side: 61: Connection refused.
+2020-01-05 13:20:40 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:20:40 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:20:41 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=22528635&page=68> (failed 1 times): Connection was refused by other side: 61: Connection refused.
+2020-01-05 13:20:41 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:20:41 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:20:44 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21785355&page=99> (failed 1 times): Connection was refused by other side: 61: Connection refused.
+2020-01-05 13:20:44 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:20:44 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:20:48 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21785527&page=99> (failed 1 times): Connection was refused by other side: 61: Connection refused.
+2020-01-05 13:20:48 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:20:48 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:21:07 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=23323063&page=55> (failed 1 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 13:21:07 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21759315&page=102> (failed 2 times): Connection was refused by other side: 61: Connection refused.
+2020-01-05 13:21:08 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=23321410&page=55> (failed 1 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 13:21:09 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21759521&page=102> (failed 2 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 13:21:11 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21759569&page=102> (failed 2 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 13:21:13 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=23296641&page=55> (failed 2 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 13:21:16 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=23297294&page=55> (failed 2 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 13:21:17 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=23312014&page=55> (failed 2 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 13:21:24 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21753089&page=102> (failed 2 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 13:21:26 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21792913&page=99> (failed 1 times): Connection was refused by other side: 61: Connection refused.
+2020-01-05 13:21:26 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:21:26 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:21:32 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-01-05 13:21:35 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-01-05 13:21:48 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=23271500&page=55> (failed 2 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 13:21:48 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:21:48 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:21:49 [scrapy.downloadermiddlewares.retry] DEBUG: Gave up retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21752656&page=102> (failed 3 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 13:21:49 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:21:50 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:21:50 [scrapy.core.scraper] ERROR: Error downloading <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21752656&page=102>
+Traceback (most recent call last):
+  File "/Users/tmackan/develop_env/flask0.12/lib/python3.5/site-packages/scrapy/core/downloader/middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+twisted.internet.error.TCPTimedOutError: TCP connection timed out: 60: Operation timed out.
+2020-01-05 13:21:52 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=22511608&page=68> (failed 1 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 13:21:52 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:21:52 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:21:58 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=22528694&page=68> (failed 1 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 13:21:58 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:21:58 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:22:00 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21785362&page=99> (failed 1 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 13:22:00 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:22:00 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:22:02 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21785490&page=99> (failed 1 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 13:22:02 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:22:02 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:22:04 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21792193&page=99> (failed 1 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 13:22:04 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): www.baidu.com
+2020-01-05 13:22:04 [urllib3.connectionpool] DEBUG: https://www.baidu.com:443 "GET / HTTP/1.1" 200 None
+2020-01-05 13:22:24 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21759327&page=102> (failed 2 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 13:22:25 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=21759360&page=102> (failed 2 times): No route to host: 51: Network is unreachable.
+2020-01-05 13:22:26 [scrapy.downloadermiddlewares.retry] DEBUG: Gave up retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=23293483&page=55> (failed 3 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 13:22:26 [scrapy.core.scraper] ERROR: Error downloading <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=23293483&page=55>
+Traceback (most recent call last):
+  File "/Users/tmackan/develop_env/flask0.12/lib/python3.5/site-packages/scrapy/core/downloader/middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+twisted.internet.error.TCPTimedOutError: TCP connection timed out: 60: Operation timed out.
+2020-01-05 13:22:27 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=23296635&page=55> (failed 2 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 13:22:29 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.kc0011.net/dispbbs.asp?boardID=2&ID=23295009&page=55> (failed 2 times): TCP connection timed out: 60: Operation timed out.
+2020-01-05 13:22:29 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/exception_count': 30,
+ 'downloader/exception_type_count/twisted.internet.error.ConnectionRefusedError': 9,
+ 'downloader/exception_type_count/twisted.internet.error.NoRouteError': 1,
+ 'downloader/exception_type_count/twisted.internet.error.TCPTimedOutError': 20,
+ 'downloader/request_bytes': 15367,
+ 'downloader/request_count': 30,
+ 'downloader/request_method_count/GET': 30,
+ 'finish_reason': 'shutdown',
+ 'finish_time': datetime.datetime(2020, 1, 5, 5, 22, 29, 352083),
+ 'httpcache/miss': 30,
+ 'log_count/DEBUG': 91,
+ 'log_count/ERROR': 1,
+ 'log_count/INFO': 14,
+ 'memusage/max': 102641664,
+ 'memusage/startup': 96350208,
+ 'retry/count': 29,
+ 'retry/max_reached': 1,
+ 'retry/reason_count/twisted.internet.error.ConnectionRefusedError': 9,
+ 'retry/reason_count/twisted.internet.error.NoRouteError': 1,
+ 'retry/reason_count/twisted.internet.error.TCPTimedOutError': 19,
+ 'scheduler/dequeued/redis': 30,
+ 'scheduler/enqueued/redis': 45,
+ 'start_time': datetime.datetime(2020, 1, 5, 5, 18, 35, 675351)}
+2020-01-05 13:22:29 [scrapy.core.engine] INFO: Spider closed (shutdown)
+2020-01-05 13:22:32 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
