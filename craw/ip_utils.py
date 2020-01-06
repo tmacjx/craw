@@ -122,12 +122,17 @@ class SQLit3PoolConnection(PoolingConnection):
         import sqlite3
         return sqlite3.connect(**config)
 
+import pymysql
 
-dbcs = {"SQLite3": SQLit3PoolConnection}
+MYSQL_HOST = "34.92.7.151"
+MYSQL_DATABASE = 'bbs'
+MYSQL_USER = 'class'
+MYSQL_PASSWORD = 'mypwd'
+MYSQL_PORT = 3306
 
-pool = Pool(database="sqlite3.db", maxWait=120)
 
-conn = pool.get()
+db = pymysql.connect(MYSQL_HOST, MYSQL_USER, MYSQL_PASSWORD, MYSQL_DATABASE, charset='utf8', port=MYSQL_PORT)
+cursor = db.cursor()
 
 
 import logging
@@ -150,29 +155,26 @@ class IPUtil(object):
         # 从数据库中随机获取一个可用的ip
         before = datetime.datetime.now() - datetime.timedelta(minutes=3)
         temp_time = datetime.datetime.strftime(before, "%Y-%m-%d %H:%M:%S")
-        random_sql = "select ip, port from proxy_ip where create_time >= datetime('{temp_time}') " \
-                     "ORDER BY RANDOM() LIMIT 1;".format(temp_time)
+        random_sql = "select ip, port from proxy_ip where create_time >= '{temp_time}' " \
+                     "ORDER BY RANDOM() LIMIT 1;".format(temp_time=temp_time)
         # random_sql = """
         #  SELECT ip, port FROM proxy_ip
         #   ORDER BY RAND()
         #   LIMIT 1
         # """
-        conn = pool.get()
-        with conn:
-            cursor = conn.cursor()
-            cursor.execute(random_sql)
+        cursor.execute(random_sql)
 
-            for ip_info in cursor.fetchall():
-                ip = ip_info[0]
-                port = ip_info[1]
+        for ip_info in cursor.fetchall():
+            ip = ip_info[0]
+            port = ip_info[1]
 
-                judge_re = self.judge_ip(ip, port)
-                if judge_re:
-                    res = "http://{0}:{1}".format(ip, port).lower()
-                    logger.debug('valid ip %s' % res)
-                    return res
-                else:
-                    return self.get_random_ip()
+            judge_re = self.judge_ip(ip, port)
+            if judge_re:
+                res = "http://{0}:{1}".format(ip, port).lower()
+                logger.debug('valid ip %s' % res)
+                return res
+            else:
+                return self.get_random_ip()
 
     def judge_ip(self, ip, port, ip_type='http'):
         # 判断ip是否可用，如果通过代理ip访问百度，返回code200则说明可用
@@ -203,13 +205,10 @@ class IPUtil(object):
     def delete_ip(self, ip):
         # 从数据库中删除无效的ip
         delete_sql = "delete from proxy_ip where ip='{0}'".format(ip)
-        conn = pool.get()
-        with conn:
-            cursor = conn.cursor()
-            cursor.execute(delete_sql)
-            conn.commit()
-            logger.debug('删除ip')
-            return True
+        cursor.execute(delete_sql)
+        db.commit()
+        logger.debug('删除ip')
+        return True
 
 
 if __name__ == '__main__':

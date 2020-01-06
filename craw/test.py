@@ -12,10 +12,6 @@ import pymysql
 logger.addHandler(file_handler)
 
 
-dbcs = {"SQLite3": SQLit3PoolConnection}
-
-pool = Pool(database="sqlite3.db", maxWait=120)
-
 MYSQL_HOST = "34.92.7.151"
 MYSQL_DATABASE = 'bbs'
 MYSQL_USER = 'class'
