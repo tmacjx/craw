@@ -130,16 +130,28 @@ pool = Pool(database="sqlite3.db", maxWait=120)
 conn = pool.get()
 
 
+import logging
+
+logger = logging.getLogger("logger")
+
+file_handler = logging.FileHandler(filename="fetch.log")
+logger.setLevel(logging.DEBUG)
+
+logger.addHandler(file_handler)
+
+
+import datetime
+
+
 # ip的管理类
 class IPUtil(object):
     # noinspection SqlDialectInspection
     def get_random_ip(self):
         # 从数据库中随机获取一个可用的ip
-
-        random_sql = """
-        SELECT ip, port FROM proxy_ip ORDER BY RANDOM() LIMIT 1;
-        
-        """
+        before = datetime.datetime.now() - datetime.timedelta(minutes=3)
+        temp_time = datetime.datetime.strftime(before, "%Y-%m-%d %H:%M:%S")
+        random_sql = "select ip, port from proxy_ip where create_time >= datetime('{temp_time}') " \
+                     "ORDER BY RANDOM() LIMIT 1;".format(temp_time)
         # random_sql = """
         #  SELECT ip, port FROM proxy_ip
         #   ORDER BY RAND()
@@ -157,7 +169,7 @@ class IPUtil(object):
                 judge_re = self.judge_ip(ip, port)
                 if judge_re:
                     res = "http://{0}:{1}".format(ip, port).lower()
-                    print('valid ip ', res)
+                    logger.debug('valid ip %s' % res)
                     return res
                 else:
                     return self.get_random_ip()
@@ -174,16 +186,16 @@ class IPUtil(object):
             }
             response = requests.get(http_url, proxies=proxy_dict)
         except Exception as e:
-            print("invalid ip and port,cannot connect baidu")
+            logger.debug("invalid ip and port,cannot connect baidu")
             self.delete_ip(ip)
             return False
         else:
             code = response.status_code
             if code >= 200 and code < 300:
-                print("effective ip")
+                logging.debug('effective ip')
                 return True
             else:
-                print("invalid ip and port,code is " + code)
+                logger.debug("invalid ip and port,code is " + str(code))
                 self.delete_ip(ip)
                 return False
 
@@ -196,7 +208,7 @@ class IPUtil(object):
             cursor = conn.cursor()
             cursor.execute(delete_sql)
             conn.commit()
-            print('删除ip')
+            logger.debug('删除ip')
             return True
 
 

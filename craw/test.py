@@ -8,7 +8,7 @@ logger = logging.getLogger("logger")
 
 file_handler = logging.FileHandler(filename="ip.log")
 logger.setLevel(logging.DEBUG)
-
+import pymysql
 logger.addHandler(file_handler)
 
 
@@ -16,6 +16,15 @@ dbcs = {"SQLite3": SQLit3PoolConnection}
 
 pool = Pool(database="sqlite3.db", maxWait=120)
 
+MYSQL_HOST = "34.92.7.151"
+MYSQL_DATABASE = 'bbs'
+MYSQL_USER = 'class'
+MYSQL_PASSWORD = 'mypwd'
+MYSQL_PORT = 3306
+
+
+db = pymysql.connect(MYSQL_HOST, MYSQL_USER, MYSQL_PASSWORD, MYSQL_DATABASE, charset='utf8', port=MYSQL_PORT)
+cursor = db.cursor()
 
 def crawl_xici_ip():
     '''
@@ -35,15 +44,12 @@ def crawl_xici_ip():
                     ip_list.append(ip)
             else:
                 time.sleep(10)
-            conn = pool.get()
-            with conn:
-                cursor = conn.cursor()
-                for item in ip_list:
-                    ip, port = item
-                    sql = "insert into proxy_ip(ip, port) values ('{0}', '{1}')".format(ip, port)
-                    cursor.execute(sql)
-                    conn.commit()
-                    logger.info('更新ip库成功')
+            for item in ip_list:
+                ip, port = item
+                sql = "insert into proxy_ip(ip, port) values ('{0}', '{1}')".format(ip, port)
+                cursor.execute(sql)
+                db.commit()
+                logger.info('更新ip库成功')
 
         # # 每页提取完后就存入数据库
         # for ip_info in ip_list:

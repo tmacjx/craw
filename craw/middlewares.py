@@ -204,6 +204,7 @@ import random
 
 
 from fake_useragent import UserAgent
+import requests
 
 
 class RandomUserAgent(object):
@@ -218,7 +219,6 @@ class RandomUserAgent(object):
         request.headers['Upgrade-Insecure-Requests'] = 1
         request.headers['Accept-Language'] = 'zh-CN,zh;q=0.9,en;q=0.8'
         request.headers['User-Agent'] = ua.random
-        request.headers['Cookie'] = 'ASPSESSIONIDQQTBTTDS=NENMAEKDHOMBJDIJCJNEDHCI; DvForum=StatUserID=111201576896; Dvbbs=hhahdcbi; ASPSESSIONIDASSBBQQB=LJPDHJEACDKOFGPGMKFHFMEF'
 
     def process_response(self, request, response, spider):
 
@@ -227,7 +227,6 @@ class RandomUserAgent(object):
 
 from .utils import redis_client
 from .ip_utils import IPUtil
-import scrapy
 
 ip_util = IPUtil()
 
@@ -259,11 +258,23 @@ class ProxyMiddleware(object):
         # 删除无效的ip
         redis_client.rpop('kc_ip')
 
-    # def process_exception(self, request, exception, spider):
-    #     proxy_ip = ip_util.get_random_ip()
-    #     spider.logger.debug('change using ip proxy: %s' % proxy_ip)
-    #     request.meta["proxy"] = proxy_ip
-    #     return request
+    def process_exception(self, request, exception, spider):
+        proxy_ip = ip_util.get_random_ip()
+        spider.logger.debug('change using ip proxy: %s' % proxy_ip)
+        request.meta["proxy"] = proxy_ip
+        return request
 
 
+class ProxyStaticMiddleware(object):
+    def __init__(self, proxy):
+        self.proxy = proxy
+
+    @classmethod
+    def from_crawler(cls, crawler):
+        return cls(proxy=crawler.settings.get('PROXIES'))
+
+    def process_request(self, request, spider):
+        proxy = random.choice(self.proxy)
+        spider.logger.debug('change using ip proxy: %s' % proxy)
+        request.meta['proxy'] = 'http://{}'.format(proxy)
 

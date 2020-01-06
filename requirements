@@ -1,0 +1,5 @@
+scrapy
+requests
+scrapy-redis
+fake_useragent
+pymysql
