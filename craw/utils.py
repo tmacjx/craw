@@ -121,7 +121,7 @@ class RedisInterface(object):
         return self.redis.pfadd(key, item)
 
 
-redis_config = [('localhost', 6379), ]
+redis_config = [('34.92.7.151', 6379), ]
 redis_password = '123456'
 
 redis_client = RedisInterface(redis_config, redis_password)

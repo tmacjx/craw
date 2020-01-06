@@ -167,3 +167,4 @@ SCHEDULER_PERSIST = True
 
 REDIS_URL = 'redis://localhost:123456@34.92.7.151:6379'
 
+REDIS_URL = 'redis://:yzd@127.0.0.1:6379'  # for master

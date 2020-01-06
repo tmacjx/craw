@@ -155,8 +155,7 @@ class IPUtil(object):
         # 从数据库中随机获取一个可用的ip
         before = datetime.datetime.now() - datetime.timedelta(minutes=3)
         temp_time = datetime.datetime.strftime(before, "%Y-%m-%d %H:%M:%S")
-        random_sql = "select ip, port from proxy_ip where create_time >= '{temp_time}' " \
-                     "ORDER BY RANDOM() LIMIT 1;".format(temp_time=temp_time)
+        random_sql = 'select ip, port from proxy_ip where create_time >= "%s" ORDER BY RAND() LIMIT 1;' % (temp_time, )
         # random_sql = """
         #  SELECT ip, port FROM proxy_ip
         #   ORDER BY RAND()

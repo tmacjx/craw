@@ -4,10 +4,10 @@
 """
 import scrapy
 import re
-from utils import search_fix_phone, search_phone
+from .utils import search_fix_phone, search_phone
 
-from items import UserItem, CategoryUserItem
-from utils import redis_client
+from .items import UserItem, CategoryUserItem
+from .utils import redis_client
 from scrapy_redis.spiders import RedisCrawlSpider, RedisSpider
 
 SITE_URL = "http://www.kc0011.net"
