@@ -247,6 +247,7 @@ class ProxyMiddleware(object):
     def process_response(self, request, response, spider):
         # 如果返回的response状态不是200，重新生成当前request对象
         if response.status != 200:
+            ip_util.create_new_ip()
             proxy_ip = ip_util.get_random_ip()
             # 对当前reque加上代理
             spider.logger.debug("change Proxy: %s" % proxy_ip)
@@ -258,11 +259,11 @@ class ProxyMiddleware(object):
         # 删除无效的ip
         redis_client.rpop('kc_ip')
 
-    def process_exception(self, request, exception, spider):
-        proxy_ip = ip_util.get_random_ip()
-        spider.logger.debug('change using ip proxy: %s' % proxy_ip)
-        request.meta["proxy"] = proxy_ip
-        return request
+    # def process_exception(self, request, exception, spider):
+    #     proxy_ip = ip_util.get_random_ip()
+    #     spider.logger.debug('change using ip proxy: %s' % proxy_ip)
+    #     request.meta["proxy"] = proxy_ip
+    #     return request
 
 
 class ProxyStaticMiddleware(object):

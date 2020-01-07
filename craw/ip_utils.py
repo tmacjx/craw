@@ -145,19 +145,39 @@ logger.setLevel(logging.DEBUG)
 
 logger.addHandler(file_handler)
 
-
-import datetime
+import time
 
 
 # ip的管理类
 class IPUtil(object):
     # noinspection SqlDialectInspection
+    def create_new_ip(self):
+        url = "http://api.xdaili.cn/xdaili-api//privateProxy/getDynamicIP/DD2020175186iTjDQ8/3403f3ebfff111e7bcaf7cd30abda612?returnType=2"
+        response = requests.get(url)
+        if response.status_code == 200:
+            result = response.json()
+            ip_list = []
+            if result['ERRORCODE'] == '0':
+                data = result['RESULT']
+                ip = (data.get('wanIp'), data.get('proxyport'))
+                ip_list.append(ip)
+            else:
+                time.sleep(15)
+            for item in ip_list:
+                ip, port = item
+                sql = "insert into proxy_ip(ip, port) values ('{0}', '{1}')".format(ip, port)
+                cursor.execute(sql)
+                db.commit()
+                logger.info('更新ip库成功')
+
     def get_random_ip(self):
         # 从数据库中随机获取一个可用的ip
         # before = datetime.datetime.now() - datetime.timedelta(minutes=3)
         # temp_time = datetime.datetime.strftime(before, "%Y-%m-%d %H:%M:%S")
         # random_sql = 'select ip, port from proxy_ip where  ORDER BY RAND() LIMIT 1;' % (temp_time, )
-        random_sql = 'select ip, port from proxy_ip  ORDER BY RAND() LIMIT 1;'
+        # random_sql = 'select ip, port from proxy_ip  ORDER BY RAND() LIMIT 1;'
+        random_sql = 'select ip, port from proxy_ip  ORDER BY create_time desc LIMIT 1;'
+
         # random_sql = """
         #  SELECT ip, port FROM proxy_ip
         #   ORDER BY RAND()

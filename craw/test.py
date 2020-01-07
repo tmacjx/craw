@@ -2,6 +2,7 @@
 import requests
 import time
 import logging
+import os, sys
 
 logger = logging.getLogger("logger")
 
@@ -9,6 +10,10 @@ file_handler = logging.FileHandler(filename="ip.log")
 logger.setLevel(logging.DEBUG)
 import pymysql
 logger.addHandler(file_handler)
+
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+
+sys.path.append(BASE_DIR)
 
 from craw.settings import MYSQL_PORT, MYSQL_USER, MYSQL_PASSWORD, MYSQL_DATABASE, MYSQL_HOST
 
