@@ -165,27 +165,26 @@ class MysqlPipeline(object):
         try:
             values = (
                 item['userid'],
-                item.get('name', '未注明'),
-                item.get('address', ''),
-                item.get('fixed_phone', ''),
-                item.get('phone_1', ''),
-                item.get('phone_2', ''),
-                item.get('trade_level', ''),
+                item.get('name', "未注明"),
+                item.get('address', ""),
+                item.get('fixed_phone', ""),
+                item.get('phone_1', ""),
+                item.get('phone_2', ""),
+                item.get('trade_level', ""),
                 int(item['credit_score']),
                 int(item['score_count']),
                 int(item['post_count']),
                 int(item['post_score']),
                 item['register_time'],
-                item.get('remark', ''),
-                item.get('warning_reason', '')
+                item.get('remark', ""),
+                item.get('warning_reason', "")
             )
-            sql = 'INSERT INTO `post_user` (userid, name, address, fixed_phone, phone_1, phone_2, ' \
+            sql = 'INSERT INTO post_user (userid, name, address, fixed_phone, phone_1, phone_2, ' \
                   'trade_level, credit_score, score_count, post_count, post_score, register_time, ' \
                   'remark, warning_reason)' \
-                  'VALUES ("%s", "%s", "%s", "%s", "%s", "%s", "%s", "%d", "%d", "%d", "%d", "%s", "%s",' \
-                  "%s"')'
+                  'VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )'
 
-            self.cursor.execute(sql)
+            self.cursor.execute(sql, values)
             self.db.commit()
         except Exception as e:
             self.db.rollback()

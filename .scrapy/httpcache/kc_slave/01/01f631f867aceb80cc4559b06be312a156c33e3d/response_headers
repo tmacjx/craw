@@ -1,0 +1,10 @@
+Vary: Accept-Encoding
+Cache-Control: private
+Set-Cookie: Dvbbs=eejbfeefj; path=/
+Set-Cookie: DvForum=StatUserID=1117540021; expires=Tue, 07-Jan-2020 08:18:52 GMT; path=/
+Set-Cookie: ASPSESSIONIDSSSAQTCS=DOKIFMKBCLJBEIIKECOMHPPO; path=/
+Content-Encoding: gzip
+Content-Type: text/html
+X-Powered-By: ASP.NET
+Server: Microsoft-IIS/7.5
+Date: Tue, 07 Jan 2020 07:18:53 GMT
