@@ -34,7 +34,7 @@ ITEM_PIPELINES = {
 }
 
 
-MYSQL_HOST = "34.92.7.151"
+MYSQL_HOST = "47.100.89.250"
 MYSQL_DATABASE = 'bbs'
 MYSQL_USER = 'class'
 MYSQL_PASSWORD = 'mypwd'
@@ -76,7 +76,7 @@ COOKIES_ENABLED = False
 #
 DOWNLOADER_MIDDLEWARES = {
     'craw.middlewares.RandomUserAgent': 543,
-    'craw.middlewares.ProxyMiddleware': 643,
+    # 'craw.middlewares.ProxyMiddleware': 643,
 
 }
 
@@ -161,10 +161,10 @@ DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
 # 不清除Redis队列、这样可以暂停/恢复 爬取
 SCHEDULER_PERSIST = True
 
+
 #指定连接到redis时使用的端口和地址（可选）
 # REDIS_HOST = 'localhost'
 # REDIS_PORT = 6379
 
-REDIS_URL = 'redis://localhost:123456@34.92.7.151:6379'
 
-REDIS_URL = 'redis://:yzd@127.0.0.1:6379'  # for master
+REDIS_URL = 'redis://:123456@47.100.89.250:6379'  # for master

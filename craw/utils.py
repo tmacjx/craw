@@ -120,8 +120,10 @@ class RedisInterface(object):
     def pfadd(self, key, item):
         return self.redis.pfadd(key, item)
 
+# from .settings import REDIS_URL
 
-redis_config = [('34.92.7.151', 6379), ]
+
+redis_config = [('47.100.89.250', 6379), ]
 redis_password = '123456'
 
 redis_client = RedisInterface(redis_config, redis_password)
