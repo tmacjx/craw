@@ -27,24 +27,24 @@ def crawl_xici_ip():
     爬取一定页数上的所有代理ip,每爬完一页，就存入数据库
     :return:
     '''
-    url = "http://api.xdaili.cn/xdaili-api//privateProxy/getDynamicIP/DD2020175186iTjDQ8/3403f3ebfff111e7bcaf7cd30abda612?returnType=2"
-    while 1:
-        response = requests.get(url)
-        if response.status_code == 200:
-            result = response.json()
-            ip_list = []
-            if result['ERRORCODE'] == '0':
-                data = result['RESULT']
-                ip = (data.get('wanIp'), data.get('proxyport'))
-                ip_list.append(ip)
-            else:
-                time.sleep(15)
-            for item in ip_list:
-                ip, port = item
-                sql = "insert into proxy_ip(ip, port) values ('{0}', '{1}')".format(ip, port)
-                cursor.execute(sql)
-                db.commit()
-                logger.info('更新ip库成功')
+    url = "http://api.xdaili.cn/xdaili-api//privateProxy/getDynamicIP/DD2020175186iTjDQ8/e140cb7c529711e8bcaf7cd30abda612?returnType=2"
+    # while 1:
+    response = requests.get(url)
+    if response.status_code == 200:
+        result = response.json()
+        ip_list = []
+        if result['ERRORCODE'] == '0':
+            data = result['RESULT']
+            ip = (data.get('wanIp'), data.get('proxyport'))
+            ip_list.append(ip)
+        else:
+            time.sleep(15)
+        for item in ip_list:
+            ip, port = item
+            sql = "insert into proxy_ip(ip, port) values ('{0}', '{1}')".format(ip, port)
+            cursor.execute(sql)
+            db.commit()
+            logger.info('更新ip库成功')
 
         # # 每页提取完后就存入数据库
         # for ip_info in ip_list:

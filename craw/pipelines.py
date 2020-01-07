@@ -179,12 +179,18 @@ class MysqlPipeline(object):
                 item.get('remark', ""),
                 item.get('warning_reason', "")
             )
+            # sql = 'INSERT INTO post_user (userid, name, address, fixed_phone, phone_1, phone_2, ' \
+            #       'trade_level, credit_score, score_count, post_count, post_score, register_time, ' \
+            #       'remark, warning_reason)' \
+            #       'VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )'
             sql = 'INSERT INTO post_user (userid, name, address, fixed_phone, phone_1, phone_2, ' \
                   'trade_level, credit_score, score_count, post_count, post_score, register_time, ' \
                   'remark, warning_reason)' \
-                  'VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )'
+                  'VALUES ("%s", "%s", "%s", "%s", "%s", "%s", "%s", %d, %d, %d, %d, "%s", "%s", "%s" );' % (
+                    values[0], values[1], values[2], values[3], values[4], values[5], values[6], values[7],
+                    values[8], values[9], values[10], values[11], values[12], values[13])
 
-            self.cursor.execute(sql, values)
+            self.cursor.execute(sql)
             self.db.commit()
         except Exception as e:
             self.db.rollback()

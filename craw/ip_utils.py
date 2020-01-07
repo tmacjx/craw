@@ -152,7 +152,7 @@ import time
 class IPUtil(object):
     # noinspection SqlDialectInspection
     def create_new_ip(self):
-        url = "http://api.xdaili.cn/xdaili-api//privateProxy/getDynamicIP/DD2020175186iTjDQ8/3403f3ebfff111e7bcaf7cd30abda612?returnType=2"
+        url = "http://api.xdaili.cn/xdaili-api//privateProxy/getDynamicIP/DD2020175186iTjDQ8/e140cb7c529711e8bcaf7cd30abda612?returnType=2"
         response = requests.get(url)
         if response.status_code == 200:
             result = response.json()
@@ -200,7 +200,6 @@ class IPUtil(object):
     def judge_ip(self, ip, port, ip_type='http'):
         # 判断ip是否可用，如果通过代理ip访问百度，返回code200则说明可用
         # 若不可用则从数据库中删除
-        print('begin judging ---->', ip, port, ip_type)
         http_url = "https://www.baidu.com"
         proxy_url = "{2}://{0}:{1}".format(ip, port, str(ip_type).lower())
         try:

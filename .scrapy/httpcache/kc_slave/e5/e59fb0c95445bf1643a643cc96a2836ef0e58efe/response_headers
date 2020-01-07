@@ -1,0 +1,13 @@
+Via: 1.1 cloud (squid/3.5.20)
+Content-Encoding: gzip
+X-Cache: MISS from cloud
+Server: Microsoft-IIS/7.5
+X-Powered-By: ASP.NET
+Content-Type: text/html
+Set-Cookie: Dvbbs=ebjbciied; path=/
+Set-Cookie: DvForum=StatUserID=11494499739; expires=Tue, 07-Jan-2020 10:46:34 GMT; path=/
+Set-Cookie: ASPSESSIONIDQCTBCQTC=HGEJJPIBMBPCMFCPNDLKAEKH; path=/
+Date: Tue, 07 Jan 2020 09:46:35 GMT
+Cache-Control: private
+X-Cache-Lookup: MISS from cloud:26490
+Vary: Accept-Encoding

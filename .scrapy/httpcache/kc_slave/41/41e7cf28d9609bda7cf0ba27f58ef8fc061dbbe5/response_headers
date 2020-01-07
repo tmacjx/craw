@@ -1,0 +1,13 @@
+Set-Cookie: Dvbbs=ebjbdcfdi; path=/
+Set-Cookie: DvForum=StatUserID=11494534256; expires=Tue, 07-Jan-2020 10:52:20 GMT; path=/
+Set-Cookie: ASPSESSIONIDQCTBCQTC=JBBKJPIBLEKOLKEKICLBPCMF; path=/
+Server: Microsoft-IIS/7.5
+Vary: Accept-Encoding
+X-Cache: MISS from cloud
+X-Cache-Lookup: MISS from cloud:26490
+Via: 1.1 cloud (squid/3.5.20)
+Cache-Control: private
+Content-Type: text/html
+Content-Encoding: gzip
+Date: Tue, 07 Jan 2020 09:52:20 GMT
+X-Powered-By: ASP.NET

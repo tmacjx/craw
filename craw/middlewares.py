@@ -260,6 +260,7 @@ class ProxyMiddleware(object):
         redis_client.rpop('kc_ip')
 
     # def process_exception(self, request, exception, spider):
+    #     ip_util.create_new_ip()
     #     proxy_ip = ip_util.get_random_ip()
     #     spider.logger.debug('change using ip proxy: %s' % proxy_ip)
     #     request.meta["proxy"] = proxy_ip
