@@ -76,8 +76,8 @@ COOKIES_ENABLED = False
 #
 DOWNLOADER_MIDDLEWARES = {
     'craw.middlewares.RandomUserAgent': 543,
-    # 'craw.middlewares.ProxyMiddleware': 643,
-
+    'craw.middlewares.ProxyMiddleware': 643,
+    # 'craw.middlewares.ProxyStaticMiddleware': 643,
 }
 
 
@@ -103,19 +103,8 @@ DOWNLOADER_MIDDLEWARES = {
 # 122.241.28.49:36243
 
 PROXIES = [
-    'http://122.241.28.49:36243',
-    'http://114.104.182.71:49476',
-    'http://180.124.36.67:20845',
-    'http://222.185.223.173:29908',
-    'http://222.185.223.235:41551',
-    'http://27.157.58.124:36751',
-    'http://121.226.57.143:34472',
-    'http://118.120.184.182:29437',
-    'http://60.169.124.183:43522',
-    'http://123.163.21.191:33917',
-    'http://27.152.194.29:37758',
-    'http://180.110.151.18:29359',
-    'http://106.110.195.231:20473'
+    'http://125.122.19.196:22454',
+    'http://125.119.181.80:44656'
 ]
 
 # Enable or disable extensions

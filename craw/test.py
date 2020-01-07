@@ -1,6 +1,5 @@
 
 import requests
-from ip_utils import SQLit3PoolConnection, Pool
 import time
 import logging
 
@@ -11,23 +10,19 @@ logger.setLevel(logging.DEBUG)
 import pymysql
 logger.addHandler(file_handler)
 
-
-MYSQL_HOST = "34.92.7.151"
-MYSQL_DATABASE = 'bbs'
-MYSQL_USER = 'class'
-MYSQL_PASSWORD = 'mypwd'
-MYSQL_PORT = 3306
+from craw.settings import MYSQL_PORT, MYSQL_USER, MYSQL_PASSWORD, MYSQL_DATABASE, MYSQL_HOST
 
 
 db = pymysql.connect(MYSQL_HOST, MYSQL_USER, MYSQL_PASSWORD, MYSQL_DATABASE, charset='utf8', port=MYSQL_PORT)
 cursor = db.cursor()
+
 
 def crawl_xici_ip():
     '''
     爬取一定页数上的所有代理ip,每爬完一页，就存入数据库
     :return:
     '''
-    url = 'http://api.xdaili.cn/xdaili-api//privateProxy/applyStaticProxy?spiderId=4c43a47073f344bab15a4a3ddfff23ea&returnType=2&count=1'
+    url = "http://api.xdaili.cn/xdaili-api//privateProxy/getDynamicIP/DD2020175186iTjDQ8/3403f3ebfff111e7bcaf7cd30abda612?returnType=2"
     while 1:
         response = requests.get(url)
         if response.status_code == 200:
@@ -35,11 +30,10 @@ def crawl_xici_ip():
             ip_list = []
             if result['ERRORCODE'] == '0':
                 data = result['RESULT']
-                for item in data:
-                    ip = (item['ip'], item['port'])
-                    ip_list.append(ip)
+                ip = (data.get('wanIp'), data.get('proxyport'))
+                ip_list.append(ip)
             else:
-                time.sleep(10)
+                time.sleep(15)
             for item in ip_list:
                 ip, port = item
                 sql = "insert into proxy_ip(ip, port) values ('{0}', '{1}')".format(ip, port)
