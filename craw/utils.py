@@ -120,6 +120,36 @@ class RedisInterface(object):
     def pfadd(self, key, item):
         return self.redis.pfadd(key, item)
 
+    def acquire_lock(self, key='ip_lock', timeout=5):
+        """
+        获取锁
+        :param key: 锁的key
+        :param timeout: 超时时间
+        :return:
+        """
+        now = int(time.time())
+        lock_timeout = now + timeout + 1
+        lock = self.redis.setnx(key, lock_timeout)
+        # 获取锁 或者锁已经超时, 尝试获得锁
+        if lock == 1 or ((now > int(self.redis.get(key))) and now > int(
+                self.redis.getset(key, lock_timeout))):
+            return True
+        return False
+
+    def release_lock(self, key='ip_lock'):
+        """
+        释放锁
+        :param key: 锁的key
+        :return:
+        """
+        now = int(time.time())
+        # 如果锁未超时，则释放锁
+        if now < int(self.redis.get(key)):
+            self.redis.delete(key)
+
+
+
+
 # from .settings import REDIS_URL
 
 

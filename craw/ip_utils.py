@@ -146,29 +146,39 @@ logger.setLevel(logging.DEBUG)
 logger.addHandler(file_handler)
 
 import time
+from craw.utils import redis_client
 
 
 # ip的管理类
 class IPUtil(object):
     # noinspection SqlDialectInspection
     def create_new_ip(self):
-        url = "http://api.xdaili.cn/xdaili-api//privateProxy/getDynamicIP/DD2020175186iTjDQ8/e140cb7c529711e8bcaf7cd30abda612?returnType=2"
-        response = requests.get(url)
-        if response.status_code == 200:
-            result = response.json()
-            ip_list = []
-            if result['ERRORCODE'] == '0':
-                data = result['RESULT']
-                ip = (data.get('wanIp'), data.get('proxyport'))
-                ip_list.append(ip)
-            else:
-                time.sleep(15)
-            for item in ip_list:
-                ip, port = item
-                sql = "insert into proxy_ip(ip, port) values ('{0}', '{1}')".format(ip, port)
-                cursor.execute(sql)
-                db.commit()
-                logger.info('更新ip库成功')
+        lock = redis_client.acquire_lock()
+        if lock:
+            logger.debug('获取lock成功')
+            url = "http://api.xdaili.cn/xdaili-api//privateProxy/getDynamicIP/DD2020175186iTjDQ8/e140cb7c529711e8bcaf7cd30abda612?returnType=2"
+            response = requests.get(url)
+            if response.status_code == 200:
+                result = response.json()
+                ip_list = []
+                if result['ERRORCODE'] == '0':
+                    data = result['RESULT']
+                    ip = (data.get('wanIp'), data.get('proxyport'))
+                    ip_list.append(ip)
+                else:
+                    time.sleep(15)
+                for item in ip_list:
+                    ip, port = item
+                    sql = "insert into proxy_ip(ip, port) values ('{0}', '{1}')".format(ip, port)
+                    cursor.execute(sql)
+                    db.commit()
+                    logger.info('更新ip库成功')
+            redis_client.release_lock()
+            logger.debug('释放lock')
+            return True
+        else:
+            logger.debug('获取lock失败')
+            return False
 
     def get_random_ip(self):
         # 从数据库中随机获取一个可用的ip
@@ -195,6 +205,7 @@ class IPUtil(object):
                 logger.debug('valid ip %s' % res)
                 return res
             else:
+                self.create_new_ip()
                 return self.get_random_ip()
 
     def judge_ip(self, ip, port, ip_type='http'):
