@@ -10,7 +10,7 @@ from scrapy.spiders import Rule
 from scrapy_redis.spiders import RedisCrawlSpider, RedisSpider
 from scrapy.linkextractors import LinkExtractor
 from urllib.parse import urljoin
-from utils import redis_client
+from craw.utils import redis_client
 import scrapy
 import urllib.parse as urlparse
 
