@@ -248,7 +248,9 @@ class ProxyMiddleware(object):
         # 如果返回的response状态不是200，重新生成当前request对象
         if response.status != 200:
             spider.logger.debug('非200 change')
-            ip_util.create_new_ip()
+            is_lock = ip_util.create_new_ip()
+            if not is_lock:
+                time.sleep(5)
             proxy_ip = ip_util.get_random_ip()
             # 对当前reque加上代理
             spider.logger.debug("change Proxy: %s" % proxy_ip)
