@@ -151,8 +151,8 @@ class MysqlPipeline(object):
                 item['category_name'],
             )
 
-            sql = 'INSERT INTO category_user (userid, category_name)VALUES(?, ?)'
-            self.cursor.execute(sql, values)
+            sql = 'INSERT INTO category_user (userid, category_name)VALUES("%s", "%s")' % (values[0], values[1])
+            self.cursor.execute(sql)
             self.db.commit()
         except Exception as e:
             self.db.rollback()
@@ -182,9 +182,10 @@ class MysqlPipeline(object):
             sql = 'INSERT INTO `post_user` (userid, name, address, fixed_phone, phone_1, phone_2, ' \
                   'trade_level, credit_score, score_count, post_count, post_score, register_time, ' \
                   'remark, warning_reason)' \
-                  'VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )'
+                  'VALUES ("%s", "%s", "%s", "%s", "%s", "%s", "%s", "%d", "%d", "%d", "%d", "%s", "%s",' \
+                  "%s"')'
 
-            self.cursor.execute(sql, values)
+            self.cursor.execute(sql)
             self.db.commit()
         except Exception as e:
             self.db.rollback()
