@@ -108,6 +108,10 @@ class MasterSpider(RedisCrawlSpider):
                     print(e)
 
         page_links = response.xpath('/html/body/div[@class="mainbar0"][last()-1]/div[1]/table[1]/form[1]/tr/td')
+        if len(page_links == 0):
+            x = response.xpath('/html/body').extract()
+            self.logger.debug('body')
+            self.logger.debug(x)
         cur_index = 1
         # 找到当前页
         for index, link in enumerate(page_links):
@@ -115,6 +119,7 @@ class MasterSpider(RedisCrawlSpider):
             if current_link:
                 cur_index = index
                 break
+
         next_link = page_links[cur_index + 1]
         # 判断下一个元素 是否是下一页
         next_pages = next_link.xpath('./a/@href')

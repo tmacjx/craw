@@ -250,7 +250,7 @@ class ProxyMiddleware(object):
             spider.logger.debug('非200 change %s %s' % (response.status, response.url))
             # is_lock = ip_util.create_new_ip()
             # if not is_lock:
-            #     time.sleep(5)
+            #     return response
             proxy_ip = ip_util.get_random_ip()
             # 对当前reque加上代理
             spider.logger.debug("change Proxy: %s" % proxy_ip)
@@ -263,10 +263,10 @@ class ProxyMiddleware(object):
         redis_client.rpop('kc_ip')
 
     def process_exception(self, request, exception, spider):
-        # spider.logger.debug('process exception %s' % exception)
+        spider.logger.debug('process exception %s %s' % (exception, requests))
         # is_lock = ip_util.create_new_ip()
         # if not is_lock:
-        time.sleep(5)
+        #     time.sleep(10)
         proxy_ip = ip_util.get_random_ip()
         spider.logger.debug('change using ip proxy: %s' % proxy_ip)
         request.meta["proxy"] = proxy_ip

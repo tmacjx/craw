@@ -149,6 +149,100 @@ import time
 from craw.utils import redis_client
 
 
+# # ip的管理类
+# class IPUtil(object):
+#     # noinspection SqlDialectInspection
+#     def create_new_ip(self):
+#         lock = redis_client.acquire_lock()
+#         if lock:
+#             logger.debug('获取lock成功')
+#             url = "http://api.xdaili.cn/xdaili-api//privateProxy/getDynamicIP/DD2020175186iTjDQ8/e140cb7c529711e8bcaf7cd30abda612?returnType=2"
+#             response = requests.get(url)
+#             if response.status_code == 200:
+#                 result = response.json()
+#                 ip_list = []
+#                 if result['ERRORCODE'] == '0':
+#                     data = result['RESULT']
+#                     ip = (data.get('wanIp'), data.get('proxyport'))
+#                     ip_list.append(ip)
+#                 else:
+#                     time.sleep(15)
+#                 for item in ip_list:
+#                     ip, port = item
+#                     sql = "insert into proxy_ip(ip, port) values ('{0}', '{1}')".format(ip, port)
+#                     cursor.execute(sql)
+#                     db.commit()
+#                     logger.info('更新ip库成功')
+#             redis_client.release_lock()
+#             logger.debug('释放lock')
+#             return True
+#         else:
+#             logger.debug('获取lock失败')
+#             return False
+#
+#     def get_random_ip(self):
+#         # 从数据库中随机获取一个可用的ip
+#         # before = datetime.datetime.now() - datetime.timedelta(minutes=3)
+#         # temp_time = datetime.datetime.strftime(before, "%Y-%m-%d %H:%M:%S")
+#         # random_sql = 'select ip, port from proxy_ip where  ORDER BY RAND() LIMIT 1;' % (temp_time, )
+#         # random_sql = 'select ip, port from proxy_ip  ORDER BY RAND() LIMIT 1;'
+#         random_sql = 'select ip, port from proxy_ip  ORDER BY create_time desc LIMIT 1;'
+#
+#         # random_sql = """
+#         #  SELECT ip, port FROM proxy_ip
+#         #   ORDER BY RAND()
+#         #   LIMIT 1
+#         # """
+#         cursor.execute(random_sql)
+#
+#         for ip_info in cursor.fetchall():
+#             ip = ip_info[0]
+#             port = ip_info[1]
+#
+#             judge_re = self.judge_ip(ip, port)
+#             if judge_re:
+#                 res = "http://{0}:{1}".format(ip, port).lower()
+#                 logger.debug('valid ip %s' % res)
+#                 return res
+#             else:
+#                 self.create_new_ip()
+#                 return self.get_random_ip()
+#
+#     def judge_ip(self, ip, port, ip_type='http'):
+#         # 判断ip是否可用，如果通过代理ip访问百度，返回code200则说明可用
+#         # 若不可用则从数据库中删除
+#         http_url = "https://www.baidu.com"
+#         proxy_url = "{2}://{0}:{1}".format(ip, port, str(ip_type).lower())
+#         try:
+#             proxy_dict = {
+#                 "http": proxy_url,
+#             }
+#             response = requests.get(http_url, proxies=proxy_dict)
+#         except Exception as e:
+#             logger.debug("invalid ip and port,cannot connect baidu")
+#             self.delete_ip(ip)
+#             return False
+#         else:
+#             code = response.status_code
+#             if code >= 200 and code < 300:
+#                 logging.debug('effective ip')
+#                 return True
+#             else:
+#                 logger.debug("invalid ip and port,code is " + str(code))
+#                 self.delete_ip(ip)
+#                 return False
+#
+#     # noinspection SqlDialectInspection
+#     def delete_ip(self, ip):
+#         # 从数据库中删除无效的ip
+#         delete_sql = "delete from proxy_ip where ip='{0}'".format(ip)
+#         cursor.execute(delete_sql)
+#         db.commit()
+#         logger.debug('删除ip')
+#         return True
+import datetime
+
+
 # ip的管理类
 class IPUtil(object):
     # noinspection SqlDialectInspection
@@ -156,37 +250,33 @@ class IPUtil(object):
         lock = redis_client.acquire_lock()
         if lock:
             logger.debug('获取lock成功')
-            url = "http://api.xdaili.cn/xdaili-api//privateProxy/getDynamicIP/DD2020175186iTjDQ8/e140cb7c529711e8bcaf7cd30abda612?returnType=2"
+            url = "http://api.xdaili.cn/xdaili-api//greatRecharge/getGreatIp?spiderId=4c43a47073f344bab15a4a3ddfff23ea&orderno=YZ20201126916UYCsDk&returnType=2&count=10"
             response = requests.get(url)
             if response.status_code == 200:
                 result = response.json()
-                ip_list = []
                 if result['ERRORCODE'] == '0':
                     data = result['RESULT']
-                    ip = (data.get('wanIp'), data.get('proxyport'))
-                    ip_list.append(ip)
-                else:
-                    time.sleep(15)
-                for item in ip_list:
-                    ip, port = item
-                    sql = "insert into proxy_ip(ip, port) values ('{0}', '{1}')".format(ip, port)
-                    cursor.execute(sql)
-                    db.commit()
-                    logger.info('更新ip库成功')
+                    for item in data:
+                        ip, port = item.get('ip'), item.get('port')
+                        sql = "insert into proxy_ip(ip, port) values ('{0}', '{1}')".format(ip, port)
+                        cursor.execute(sql)
+                        db.commit()
+                        logger.info('更新ip库成功')
             redis_client.release_lock()
             logger.debug('释放lock')
             return True
         else:
             logger.debug('获取lock失败')
+            time.sleep(5)
             return False
 
     def get_random_ip(self):
         # 从数据库中随机获取一个可用的ip
-        # before = datetime.datetime.now() - datetime.timedelta(minutes=3)
-        # temp_time = datetime.datetime.strftime(before, "%Y-%m-%d %H:%M:%S")
-        # random_sql = 'select ip, port from proxy_ip where  ORDER BY RAND() LIMIT 1;' % (temp_time, )
+        before = datetime.datetime.now() - datetime.timedelta(minutes=3)
+        temp_time = datetime.datetime.strftime(before, "%Y-%m-%d %H:%M:%S")
+        random_sql = 'select ip, port from proxy_ip where create_time >= "%s" ORDER BY RAND() LIMIT 1;' % (temp_time, )
         # random_sql = 'select ip, port from proxy_ip  ORDER BY RAND() LIMIT 1;'
-        random_sql = 'select ip, port from proxy_ip  ORDER BY create_time desc LIMIT 1;'
+        # random_sql = 'select ip, port from proxy_ip  ORDER BY create_time desc LIMIT 1;'
 
         # random_sql = """
         #  SELECT ip, port FROM proxy_ip
@@ -194,19 +284,23 @@ class IPUtil(object):
         #   LIMIT 1
         # """
         cursor.execute(random_sql)
+        result = cursor.fetchall()
+        if not result:
+            self.create_new_ip()
+            return self.get_random_ip()
+        else:
+            for ip_info in result:
+                ip = ip_info[0]
+                port = ip_info[1]
 
-        for ip_info in cursor.fetchall():
-            ip = ip_info[0]
-            port = ip_info[1]
-
-            judge_re = self.judge_ip(ip, port)
-            if judge_re:
-                res = "http://{0}:{1}".format(ip, port).lower()
-                logger.debug('valid ip %s' % res)
-                return res
-            else:
-                self.create_new_ip()
-                return self.get_random_ip()
+                judge_re = self.judge_ip(ip, port)
+                if judge_re:
+                    res = "http://{0}:{1}".format(ip, port).lower()
+                    logger.debug('valid ip %s' % res)
+                    return res
+                else:
+                    self.create_new_ip()
+                    return self.get_random_ip()
 
     def judge_ip(self, ip, port, ip_type='http'):
         # 判断ip是否可用，如果通过代理ip访问百度，返回code200则说明可用

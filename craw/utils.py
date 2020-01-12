@@ -144,10 +144,8 @@ class RedisInterface(object):
         """
         now = int(time.time())
         # 如果锁未超时，则释放锁
-        if now < int(self.redis.get(key)):
-            self.redis.delete(key)
-
-
+        # if now < int(self.redis.get(key)):
+        self.redis.delete(key)
 
 
 # from .settings import REDIS_URL
