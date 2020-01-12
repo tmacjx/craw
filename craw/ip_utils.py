@@ -298,9 +298,8 @@ class IPUtil(object):
                     res = "http://{0}:{1}".format(ip, port).lower()
                     logger.debug('valid ip %s' % res)
                     return res
-                else:
-                    self.create_new_ip()
-                    return self.get_random_ip()
+            self.create_new_ip()
+            return self.get_random_ip()
 
     def judge_ip(self, ip, port, ip_type='http'):
         # 判断ip是否可用，如果通过代理ip访问百度，返回code200则说明可用

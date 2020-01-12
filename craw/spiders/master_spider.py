@@ -108,7 +108,7 @@ class MasterSpider(RedisCrawlSpider):
                     print(e)
 
         page_links = response.xpath('/html/body/div[@class="mainbar0"][last()-1]/div[1]/table[1]/form[1]/tr/td')
-        if len(page_links == 0):
+        if len(page_links) == 0:
             x = response.xpath('/html/body').extract()
             self.logger.debug('body')
             self.logger.debug(x)
