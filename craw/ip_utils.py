@@ -247,7 +247,7 @@ import datetime
 class IPUtil(object):
     # noinspection SqlDialectInspection
     def create_new_ip(self):
-        lock = redis_client.acquire_lock(timeout=10)
+        lock = redis_client.acquire_lock(timeout=15)
         if lock:
             logger.debug('获取lock成功')
             url = "http://api.xdaili.cn/xdaili-api//greatRecharge/getGreatIp?spiderId=4c43a47073f344bab15a4a3ddfff23ea&orderno=YZ20201126916UYCsDk&returnType=2&count=10"
@@ -262,12 +262,15 @@ class IPUtil(object):
                         cursor.execute(sql)
                         db.commit()
                         logger.info('更新ip库成功')
+                else:
+                    logger.debug('fail %s' % result)
+                    time.sleep(5)
             redis_client.release_lock()
             logger.debug('释放lock')
             return True
         else:
             logger.debug('获取lock失败')
-            time.sleep(15)
+            time.sleep(25)
             return False
 
     def get_random_ip(self):
