@@ -121,6 +121,7 @@ class MasterSpider(RedisCrawlSpider):
                 break
 
         next_link = page_links[cur_index + 1]
+        self.logger.debug('栏目parse 当前页 %s' % response.url)
         # 判断下一个元素 是否是下一页
         next_pages = next_link.xpath('./a/@href')
         if next_pages:
