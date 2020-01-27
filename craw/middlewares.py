@@ -248,6 +248,8 @@ class ProxyMiddleware(object):
         # 如果返回的response状态不是200，重新生成当前request对象
         if response.status != 200:
             spider.logger.debug('非200 change %s %s' % (response.status, response.url))
+            if response.status in [503, 500, 404]:
+                time.sleep(10)
             # is_lock = ip_util.create_new_ip()
             # if not is_lock:
             #     return response

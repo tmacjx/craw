@@ -129,10 +129,11 @@ class RedisInterface(object):
         """
         now = int(time.time())
         lock_timeout = now + timeout + 1
-        lock = self.redis.setnx(key, lock_timeout)
+        lock = self.redis.setex(key, 1, lock_timeout)
         # 获取锁 或者锁已经超时, 尝试获得锁
-        if lock == 1 or ((now > int(self.redis.get(key))) and now > int(
-                self.redis.getset(key, lock_timeout))):
+        # if lock == 1 or ((now > int(self.redis.get(key))) and now > int(
+        #         self.redis.getset(key, lock_timeout))):
+        if lock == 1:
             return True
         return False
 

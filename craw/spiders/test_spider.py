@@ -5,7 +5,7 @@
 """
 
 # coding: utf-8
-from scrapy import Item, Field
+from scrapy import Item, Field, Spider
 from scrapy.spiders import Rule
 from scrapy_redis.spiders import RedisCrawlSpider, RedisSpider
 from scrapy.linkextractors import LinkExtractor
@@ -24,90 +24,76 @@ class LinkItem(Item):
     link = Field()
 
 
-class MasterSpider(RedisCrawlSpider):
-    name = 'kc_master'
-    redis_key = 'kc:start_urls'
+class TestSpider(Spider):
+    name = "test_slave"
     start_urls = [
-        'http://kc0011.net/index.asp',
-        ]
-    # kc_main_lx = LinkExtractor(deny=(r'http://kc0011.net/index.asp', ))
-    kc_category2_lx = LinkExtractor(allow=(r'http://www.kc0011.net/\?boardid=\d+',
-                                           r'http://kc0011.net/index.asp\?boardid=\d+'),
-                                    # deny=(r'http://www.kc0011.net/index.asp\?boardid=16',
-                                    #       r'http://www.kc0011.net/index.asp\?boardid=17',
-                                    #       r'http://www.kc0011.net/index.asp\?boardid=19',
-                                    # ),
-                                    )
+        "http://www.kc0011.net/?boardID=10&page=366"
+        "http://www.kc0011.net/index.asp?boardid=11",
+        "http://www.kc0011.net/index.asp?boardid=170",
+        "http://www.kc0011.net/index.asp?boardid=144",
+        "http://www.kc0011.net/index.asp?boardid=176",
+        "http://www.kc0011.net/index.asp?boardid=148",
+        "http://www.kc0011.net/index.asp?boardid=151",
+        "http://www.kc0011.net/index.asp?boardid=184",
+        "http://www.kc0011.net/index.asp?boardid=154",
+        "http://www.kc0011.net/index.asp?boardid=163",
+        "http://www.kc0011.net/index.asp?boardid=165",
+        "http://www.kc0011.net/index.asp?boardid=169",
+        "http://www.kc0011.net/index.asp?boardid=171",
+        "http://www.kc0011.net/index.asp?boardid=172",
+        "http://www.kc0011.net/index.asp?boardid=179",
+        "http://www.kc0011.net/index.asp?boardid=186",
+        "http://www.kc0011.net/index.asp?boardid=173",
+        "http://www.kc0011.net/index.asp?boardid=74",
+        "http://www.kc0011.net/index.asp?boardid=185",
 
-    rules = (
-        Rule(kc_category2_lx, callback='parse_category', follow=False),
-    )
+        "http://www.kc0011.net/index.asp?boardid=14",
+        "http://www.kc0011.net/index.asp?boardid=23",
+        "http://www.kc0011.net/index.asp?boardid=155",
+        "http://www.kc0011.net/index.asp?boardid=166",
+        "http://www.kc0011.net/index.asp?boardid=198",
+        "http://www.kc0011.net/index.asp?boardid=157",
+        "http://www.kc0011.net/index.asp?boardid=38",
+        "http://www.kc0011.net/index.asp?boardid=187",
+        "http://www.kc0011.net/index.asp?boardid=149",
+        "http://www.kc0011.net/index.asp?boardid=126",
+
+        "http://www.kc0011.net/index.asp?boardid=167",
+        "http://www.kc0011.net/index.asp?boardid=158",
+
+        "http://www.kc0011.net/index.asp?boardid=93",
+        "http://www.kc0011.net/index.asp?boardid=70",
+        "http://www.kc0011.net/index.asp?boardid=117",
+        "http://www.kc0011.net/index.asp?boardid=79",
+        "http://www.kc0011.net/index.asp?boardid=131",
+        "http://www.kc0011.net/index.asp?boardid=132",
+        "http://www.kc0011.net/index.asp?boardid=137",
+
+        "http://www.kc0011.net/index.asp?boardid=138",
+        "http://www.kc0011.net/index.asp?boardid=139",
+
+        "http://www.kc0011.net/index.asp?boardid=20",
+        "http://www.kc0011.net/index.asp?boardid=140",
+    ]
 
     def __init__(self, *args, **kwargs):
         # domain = kwargs.pop('domain', '')
         # self.allowed_domains = filter(None, domain.split(','))
-        super(MasterSpider, self).__init__(*args, **kwargs)
+        super(TestSpider, self).__init__(*args, **kwargs)
 
-    # def parse(self, response):
-    #     self.logger.debug('主页parse---')
-    #     for sel in response.xpath('//body/div[contains(@class, "mainbar")][last()-6]'):
-    #         title_sel = sel.xpath('./div/div[last()-1]')[1].xpath('./a')
-    #         title = title_sel.xpath('./text()').extract()[0]
-    #         self.logger.debug('主页parse 栏目: %s' % title)
-    #         category_pages = title_sel.xpath('./@href')
-    #         if category_pages:
-    #
-    #             category_page = urljoin(SITE_URL, category_pages[0].extract())
-    #             self.logger.debug('主页parse 栏目URL: %s' % category_pages)
-    #             item = LinkItem()
-    #             item['name'] = title
-    #             item['link'] = category_page
-    #             yield scrapy.Request(item['link'], callback=self.parse_category)
-    #
-    #     for sel in response.xpath('//body/div[contains(@class, "mainbar")][last()-8]'):
-    #         title_sel = sel.xpath('./div/div[last()-1]')[1].xpath('./a')
-    #         title = title_sel.xpath('./text()').extract()[0]
-    #         self.logger.debug('主页parse 栏目: %s' % title)
-    #         category_pages = title_sel.xpath('./@href')
-    #         if category_pages:
-    #             category_page = urljoin(SITE_URL, category_pages[0].extract())
-    #             self.logger.debug('主页parse 栏目URL: %s' % category_pages)
-    #             item = LinkItem()
-    #             item['name'] = title
-    #             item['link'] = category_page
-    #             yield scrapy.Request(item['link'], callback=self.parse_category)
-    #
-    #     for sel in response.xpath('//body/div[contains(@class, "mainbar") and contains(@style,"height:60px") '
-    #                               'and contains(@style,"line-height:18px")]'):
-    #         category_title = sel.xpath('./div/div/a')
-    #         for title_sel in category_title:
-    #             title = title_sel.xpath('./text()').extract()[0]
-    #             if title in IGNORE_TITLE:
-    #                 continue
-    #             self.logger.debug('主页parse 栏目: %s' % title)
-    #             category_pages = title_sel.xpath('./@href')
-    #             if category_pages:
-    #                 category_page = urljoin(SITE_URL, category_pages[0].extract())
-    #                 self.logger.debug('主页parse 栏目URL: %s' % category_pages)
-    #                 item = LinkItem()
-    #                 item['name'] = title
-    #                 item['link'] = category_page
-    #                 yield scrapy.Request(item['link'], callback=self.parse_category)
-
-    def parse_category(self, response):
+    def parse(self, response):
         category_path = response.xpath('//body/div[@class="tableborder2"][1]')
         if len(category_path.xpath('./a')) == 3:
             category_title = category_path.xpath('./a[2]/text()')[0].extract()
         else:
             category_title = category_path.xpath('./a[3]/text()')[0].extract()
 
-        self.logger.debug('文章parse 栏目: %s %s' % (category_title, response.url))
+        self.logger.debug('文章parse 栏目: %s' % category_title)
 
         post_len = len(response.xpath('/html/body/form[1]/div[@class="list"]/div[@class="listtitle"]/a'))
         if post_len == 0:
             self.logger.debug("无post_len %s %s" % (category_title, response.url))
             return
-
         for post_sel in response.xpath('/html/body/form[1]/div[@class="list"]/div[@class="listtitle"]/a'):
             post_pages = post_sel.xpath('./@href')
             if post_pages:

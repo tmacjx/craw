@@ -247,40 +247,43 @@ import datetime
 class IPUtil(object):
     # noinspection SqlDialectInspection
     def create_new_ip(self):
-        lock = redis_client.acquire_lock(timeout=15)
+        lock = redis_client.acquire_lock(timeout=60 * 3)
         if lock:
             logger.debug('获取lock成功')
-            url = "http://api.xdaili.cn/xdaili-api//greatRecharge/getGreatIp?spiderId=4c43a47073f344bab15a4a3ddfff23ea&orderno=YZ20201126916UYCsDk&returnType=2&count=10"
-            response = requests.get(url)
-            if response.status_code == 200:
-                result = response.json()
-                if result['ERRORCODE'] == '0':
-                    data = result['RESULT']
-                    for item in data:
-                        ip, port = item.get('ip'), item.get('port')
-                        sql = "insert into proxy_ip(ip, port) values ('{0}', '{1}')".format(ip, port)
-                        cursor.execute(sql)
-                        db.commit()
-                        logger.info('更新ip库成功')
-                else:
-                    logger.debug('fail %s' % result)
-                    time.sleep(5)
-            redis_client.release_lock()
-            logger.debug('释放lock')
-            return True
+            # time.sleep(8)
+            url = "http://api.xdaili.cn/xdaili-api//privateProxy/applyStaticProxy?spiderId=4c43a47073f344bab15a4a3ddfff23ea&returnType=2&count=1"
+            # url = "http://api.xdaili.cn/xdaili-api//greatRecharge/getGreatIp?spiderId=4c43a47073f344bab15a4a3ddfff23ea&orderno=YZ20201126916UYCsDk&returnType=2&count=10"
+            while 1:
+                response = requests.get(url)
+                if response.status_code == 200:
+                    result = response.json()
+                    if result['ERRORCODE'] == '0':
+                        data = result['RESULT']
+                        for item in data:
+                            ip, port = item.get('ip'), item.get('port')
+                            sql = "insert into proxy_ip(ip, port) values ('{0}', '{1}')".format(ip, port)
+                            cursor.execute(sql)
+                            db.commit()
+                            logger.info('更新ip库成功')
+                        redis_client.release_lock()
+                        logger.debug('释放lock')
+                        return True
+                    else:
+                        logger.debug('fail %s' % result)
+                        time.sleep(15)
         else:
             logger.debug('获取lock失败')
-            time.sleep(25)
+            time.sleep(10)
             return False
 
     def get_random_ip(self):
         # 从数据库中随机获取一个可用的ip
-        before = datetime.datetime.now() - datetime.timedelta(minutes=5)
-        temp_time = datetime.datetime.strftime(before, "%Y-%m-%d %H:%M:%S")
+        # before = datetime.datetime.now() - datetime.timedelta(minutes=5)
+        # temp_time = datetime.datetime.strftime(before, "%Y-%m-%d %H:%M:%S")
         # random_sql = 'select ip, port from proxy_ip  ORDER BY id desc LIMIT 10;'
-        random_sql = 'select ip, port from proxy_ip where create_time >= "%s" ORDER BY RAND() LIMIT 5;' % (temp_time, )
+        # random_sql = 'select ip, port from proxy_ip where create_time >= "%s" ORDER BY RAND() LIMIT 5;' % (temp_time, )
         # random_sql = 'select ip, port from proxy_ip  ORDER BY RAND() LIMIT 1;'
-        # random_sql = 'select ip, port from proxy_ip  ORDER BY create_time desc LIMIT 1;'
+        random_sql = 'select ip, port from proxy_ip  ORDER BY id desc LIMIT 1;'
 
         # random_sql = """
         #  SELECT ip, port FROM proxy_ip

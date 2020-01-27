@@ -17,8 +17,9 @@ NEWSPIDER_MODULE = 'craw.spiders'
 
 LOG_FILE = "craw.log"
 LOG_LEVEL = "DEBUG"
-RETRY_TIMES = 10
-DOWNLOAD_TIMEOUT = 60
+# RETRY_TIMES = 10
+RETRY_ENABLED = False
+DOWNLOAD_TIMEOUT = 30
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'craw (+http://www.yourdomain.com)'
 
@@ -28,8 +29,8 @@ ROBOTSTXT_OBEY = False
 SQLITE_DB_NAME = 'sqlite3.db'
 
 ITEM_PIPELINES = {
-    'scrapy_redis.pipelines.RedisPipeline': 300,
-    'craw.pipelines.MysqlPipeline': 400,
+    # 'scrapy_redis.pipelines.RedisPipeline': 300,
+    # 'craw.pipelines.MysqlPipeline': 400,
     # 'craw.pipelines.SQLitePipeline': 400,
 }
 
@@ -75,8 +76,8 @@ COOKIES_ENABLED = False
 # }
 #
 DOWNLOADER_MIDDLEWARES = {
-    'craw.middlewares.RandomUserAgent': 543,
-    'craw.middlewares.ProxyMiddleware': 643,
+    # 'craw.middlewares.RandomUserAgent': 543,
+    # 'craw.middlewares.ProxyMiddleware': 643,
     # 'craw.middlewares.ProxyStaticMiddleware': 643,
 }
 
