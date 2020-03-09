@@ -1,3 +1,4 @@
+### 分布式爬取某文玩论坛
 scrapy
 
 scrapy-redis
@@ -6,7 +7,7 @@ mysql
 
 redis
 
-### 分布式爬取某文玩论坛
+
 运行master采集网页
 > nohup python run_master.py & >/dev/null
 
