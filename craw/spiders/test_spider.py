@@ -13,6 +13,7 @@ from urllib.parse import urljoin
 from craw.utils import redis_client
 import scrapy
 import urllib.parse as urlparse
+from scrapy_redis.spiders import RedisCrawlSpider, RedisSpider
 
 
 SITE_URL = "http://www.kc0011.net"
@@ -24,57 +25,14 @@ class LinkItem(Item):
     link = Field()
 
 
-class TestSpider(Spider):
+class TestSpider(RedisCrawlSpider):
     name = "test_slave"
-    start_urls = [
-        "http://www.kc0011.net/?boardID=10&page=366"
-        "http://www.kc0011.net/index.asp?boardid=11",
-        "http://www.kc0011.net/index.asp?boardid=170",
-        "http://www.kc0011.net/index.asp?boardid=144",
-        "http://www.kc0011.net/index.asp?boardid=176",
-        "http://www.kc0011.net/index.asp?boardid=148",
-        "http://www.kc0011.net/index.asp?boardid=151",
-        "http://www.kc0011.net/index.asp?boardid=184",
-        "http://www.kc0011.net/index.asp?boardid=154",
-        "http://www.kc0011.net/index.asp?boardid=163",
-        "http://www.kc0011.net/index.asp?boardid=165",
-        "http://www.kc0011.net/index.asp?boardid=169",
-        "http://www.kc0011.net/index.asp?boardid=171",
-        "http://www.kc0011.net/index.asp?boardid=172",
-        "http://www.kc0011.net/index.asp?boardid=179",
-        "http://www.kc0011.net/index.asp?boardid=186",
-        "http://www.kc0011.net/index.asp?boardid=173",
-        "http://www.kc0011.net/index.asp?boardid=74",
-        "http://www.kc0011.net/index.asp?boardid=185",
-
-        "http://www.kc0011.net/index.asp?boardid=14",
-        "http://www.kc0011.net/index.asp?boardid=23",
-        "http://www.kc0011.net/index.asp?boardid=155",
-        "http://www.kc0011.net/index.asp?boardid=166",
-        "http://www.kc0011.net/index.asp?boardid=198",
-        "http://www.kc0011.net/index.asp?boardid=157",
-        "http://www.kc0011.net/index.asp?boardid=38",
-        "http://www.kc0011.net/index.asp?boardid=187",
-        "http://www.kc0011.net/index.asp?boardid=149",
-        "http://www.kc0011.net/index.asp?boardid=126",
-
-        "http://www.kc0011.net/index.asp?boardid=167",
-        "http://www.kc0011.net/index.asp?boardid=158",
-
-        "http://www.kc0011.net/index.asp?boardid=93",
-        "http://www.kc0011.net/index.asp?boardid=70",
-        "http://www.kc0011.net/index.asp?boardid=117",
-        "http://www.kc0011.net/index.asp?boardid=79",
-        "http://www.kc0011.net/index.asp?boardid=131",
-        "http://www.kc0011.net/index.asp?boardid=132",
-        "http://www.kc0011.net/index.asp?boardid=137",
-
-        "http://www.kc0011.net/index.asp?boardid=138",
-        "http://www.kc0011.net/index.asp?boardid=139",
-
-        "http://www.kc0011.net/index.asp?boardid=20",
-        "http://www.kc0011.net/index.asp?boardid=140",
-    ]
+    redis_key = 'kc:fix_urls'
+    #
+    # start_urls = [
+    #     "http://www.kc0011.net/index.asp?boardid=144&page=2929",
+    #     "http://www.kc0011.net/index.asp?boardid=151&page=2987",
+    # ]
 
     def __init__(self, *args, **kwargs):
         # domain = kwargs.pop('domain', '')
@@ -137,12 +95,14 @@ class TestSpider(Spider):
             self.logger.debug('栏目parse 下一页: %s' % next_page)
             yield self.make_requests_from_url(next_page)
         else:
-            self.logger.debug('栏目parse 无下一页')
+            self.logger.debug("无post_len %s %s" % (category_title, response.url))
+            # self.logger.debug('栏目parse 无下一页')
 
     def _filter_url(self, url, key="kc0011_slave:start_urls"):
         is_new_url = bool(redis_client.pfadd(key + "_filter", url))
         if is_new_url:
             res = redis_client.lpush(key, url)
+            redis_client.set_add(url, key="url_set")
             self.logger.debug('salve url add %s' % res)
 
     # def _build_url(self, url):

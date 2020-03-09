@@ -4,14 +4,11 @@
 
 """
 
-# coding: utf-8
 from scrapy import Item, Field
 from scrapy.spiders import Rule
-from scrapy_redis.spiders import RedisCrawlSpider, RedisSpider
+from scrapy_redis.spiders import RedisCrawlSpider
 from scrapy.linkextractors import LinkExtractor
-from urllib.parse import urljoin
 from craw.utils import redis_client
-import scrapy
 import urllib.parse as urlparse
 
 
@@ -44,55 +41,7 @@ class MasterSpider(RedisCrawlSpider):
     )
 
     def __init__(self, *args, **kwargs):
-        # domain = kwargs.pop('domain', '')
-        # self.allowed_domains = filter(None, domain.split(','))
         super(MasterSpider, self).__init__(*args, **kwargs)
-
-    # def parse(self, response):
-    #     self.logger.debug('主页parse---')
-    #     for sel in response.xpath('//body/div[contains(@class, "mainbar")][last()-6]'):
-    #         title_sel = sel.xpath('./div/div[last()-1]')[1].xpath('./a')
-    #         title = title_sel.xpath('./text()').extract()[0]
-    #         self.logger.debug('主页parse 栏目: %s' % title)
-    #         category_pages = title_sel.xpath('./@href')
-    #         if category_pages:
-    #
-    #             category_page = urljoin(SITE_URL, category_pages[0].extract())
-    #             self.logger.debug('主页parse 栏目URL: %s' % category_pages)
-    #             item = LinkItem()
-    #             item['name'] = title
-    #             item['link'] = category_page
-    #             yield scrapy.Request(item['link'], callback=self.parse_category)
-    #
-    #     for sel in response.xpath('//body/div[contains(@class, "mainbar")][last()-8]'):
-    #         title_sel = sel.xpath('./div/div[last()-1]')[1].xpath('./a')
-    #         title = title_sel.xpath('./text()').extract()[0]
-    #         self.logger.debug('主页parse 栏目: %s' % title)
-    #         category_pages = title_sel.xpath('./@href')
-    #         if category_pages:
-    #             category_page = urljoin(SITE_URL, category_pages[0].extract())
-    #             self.logger.debug('主页parse 栏目URL: %s' % category_pages)
-    #             item = LinkItem()
-    #             item['name'] = title
-    #             item['link'] = category_page
-    #             yield scrapy.Request(item['link'], callback=self.parse_category)
-    #
-    #     for sel in response.xpath('//body/div[contains(@class, "mainbar") and contains(@style,"height:60px") '
-    #                               'and contains(@style,"line-height:18px")]'):
-    #         category_title = sel.xpath('./div/div/a')
-    #         for title_sel in category_title:
-    #             title = title_sel.xpath('./text()').extract()[0]
-    #             if title in IGNORE_TITLE:
-    #                 continue
-    #             self.logger.debug('主页parse 栏目: %s' % title)
-    #             category_pages = title_sel.xpath('./@href')
-    #             if category_pages:
-    #                 category_page = urljoin(SITE_URL, category_pages[0].extract())
-    #                 self.logger.debug('主页parse 栏目URL: %s' % category_pages)
-    #                 item = LinkItem()
-    #                 item['name'] = title
-    #                 item['link'] = category_page
-    #                 yield scrapy.Request(item['link'], callback=self.parse_category)
 
     def parse_category(self, response):
         category_path = response.xpath('//body/div[@class="tableborder2"][1]')
@@ -154,21 +103,13 @@ class MasterSpider(RedisCrawlSpider):
             self.logger.debug('栏目parse 无下一页')
 
     def _filter_url(self, url, key="kc0011_slave:start_urls"):
-        is_new_url = bool(redis_client.pfadd(key + "_filter", url))
-        if is_new_url:
+        # is_new_url = bool(redis_client.pfadd(key + "_filter", url))
+        # if is_new_url:
+        is_exist = redis_client.set_member(url, key='url_set')
+        if not bool(is_exist):
+            redis_client.set_add(url, key="url_set")
             res = redis_client.lpush(key, url)
             self.logger.debug('salve url add %s' % res)
-
-    # def _build_url(self, url):
-    #     parse = urlparse(url)
-    #     query = parse_qs(parse.query)
-    #     base = parse.scheme + '://' + parse.netloc + parse.path
-    #
-    #     if '_ipg' not in query.keys() or '_pgn' not in query.keys() or '_skc' in query.keys():
-    #         new_url = base + "?" + urlencode({"_ipg": "200", "_pgn": "1"})
-    #     else:
-    #         new_url = base + "?" + urlencode({"_ipg": query['_ipg'][0], "_pgn": int(query['_pgn'][0]) + 1})
-    #     return new_url
 
 
 

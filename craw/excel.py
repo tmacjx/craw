@@ -2,27 +2,31 @@
 # @Author  wk
 # @Time 2019/12/22 19:09
 
+mysql数据导出位excel表
+
 """
 
-# todo  找出重复的cate，然后找出cate下的usernam
-
-import sqlite3
 import os
 import datetime
 import xlsxwriter
+import pymysql
+
+HOST = "47.100.89.250"
+USER = "class"
+PASSWORD = "mypwd"
+DATABASE = "bbs"
 
 
 def execute_sql(sql):
-    conn = sqlite3.connect('sqlite3.db')
-    cursor = conn.cursor()
+    db = pymysql.connect(HOST, USER, PASSWORD, DATABASE, charset='utf8')
+    cursor = db.cursor()
     try:
         cursor.execute(sql)
         results = cursor.fetchall()
         return results
     except Exception as e:
-        print('error ', e)
-        conn.rollback()
-    conn.close()
+        print("db %s" % e)
+        db.rollback()
 
 
 def query_category():
@@ -31,17 +35,17 @@ def query_category():
     row_list = execute_sql(sql)
     for row in row_list:
         result.append(row[0])
-    print(result)
+    print("cate %s" % result)
     return result
 
 
 def query_category_user(cate_name):
     result = []
-    sql = "select userid from category_user where userid = '%s' " % cate_name
+    sql = "select userid from category_user where category_name = '%s' " % cate_name
     row_list = execute_sql(sql)
     for row in row_list:
         result.append(row[0])
-    print(result)
+    print("user %s "% result)
     return result
 
 

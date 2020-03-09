@@ -21,7 +21,6 @@ LOG_LEVEL = "DEBUG"
 RETRY_ENABLED = False
 DOWNLOAD_TIMEOUT = 30
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'craw (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
@@ -29,8 +28,8 @@ ROBOTSTXT_OBEY = False
 SQLITE_DB_NAME = 'sqlite3.db'
 
 ITEM_PIPELINES = {
-    # 'scrapy_redis.pipelines.RedisPipeline': 300,
-    # 'craw.pipelines.MysqlPipeline': 400,
+    'scrapy_redis.pipelines.RedisPipeline': 300,
+    'craw.pipelines.MysqlPipeline': 400,
     # 'craw.pipelines.SQLitePipeline': 400,
 }
 
@@ -40,7 +39,7 @@ MYSQL_DATABASE = 'bbs'
 MYSQL_USER = 'class'
 MYSQL_PASSWORD = 'mypwd'
 MYSQL_PORT = 3306
-# Configure maximum concurrent requests performed by Scrapy (default: 16)
+# 抓取并发数, 默认为16
 CONCURRENT_REQUESTS = 32
 
 # Configure a delay for requests for the same website (default: 0)
@@ -76,32 +75,10 @@ COOKIES_ENABLED = False
 # }
 #
 DOWNLOADER_MIDDLEWARES = {
-    # 'craw.middlewares.RandomUserAgent': 543,
-    # 'craw.middlewares.ProxyMiddleware': 643,
+    'craw.middlewares.RandomUserAgent': 543,
+    'craw.middlewares.ProxyMiddleware': 643,
     # 'craw.middlewares.ProxyStaticMiddleware': 643,
 }
-
-
-# 114.104.182.71:49476
-# 183.166.119.13:48719
-# 180.124.36.67:20845
-# 222.185.223.173:29908
-# 222.185.223.235:41551
-# 27.157.58.124:36751
-# 121.226.57.143:34472
-# 118.120.184.182:29437
-# 60.169.124.183:43522
-# 123.163.21.191:33917
-# 123.163.132.174:26066
-# 27.152.194.29:37758
-# 180.110.151.18:29359
-# 106.110.195.231:20473
-# 113.221.46.8:42383
-# 106.111.222.28:49557
-# 218.73.47.215:20470
-# 171.9.116.161:31750
-# 125.112.38.143:25916
-# 122.241.28.49:36243
 
 PROXIES = [
     'http://125.122.19.196:22454',
@@ -135,7 +112,8 @@ PROXIES = [
 
 # Enable and configure HTTP caching (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html#httpcache-middleware-settings
-HTTPCACHE_ENABLED = True
+# 是否启用html缓存，默认启动，过多页面抓取会造成linxu inode耗尽！！！
+HTTPCACHE_ENABLED = False
 #HTTPCACHE_EXPIRATION_SECS = 0
 HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
@@ -151,10 +129,9 @@ DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
 # 不清除Redis队列、这样可以暂停/恢复 爬取
 SCHEDULER_PERSIST = True
 
-
 #指定连接到redis时使用的端口和地址（可选）
 # REDIS_HOST = 'localhost'
 # REDIS_PORT = 6379
 
 
-REDIS_URL = 'redis://:123456@47.100.89.250:6379'  # for master
+REDIS_URL = 'redis://:123456@34.92.7.151:6379'  # for master

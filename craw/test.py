@@ -1,6 +1,9 @@
+"""
+单独的脚本
+测试代理是否可用
+"""
 
 import requests
-import time
 import logging
 import os, sys
 
@@ -28,8 +31,6 @@ def crawl_xici_ip():
     :return:
     '''
     url = "http://api.xdaili.cn/xdaili-api//privateProxy/applyStaticProxy?spiderId=4c43a47073f344bab15a4a3ddfff23ea&returnType=2&count=1"
-    # url = "http://api.xdaili.cn/xdaili-api//privateProxy/getDynamicIP/DD2020175186iTjDQ8/e140cb7c529711e8bcaf7cd30abda612?returnType=2"
-    # while 1:
     response = requests.get(url)
     if response.status_code == 200:
         result = response.json()

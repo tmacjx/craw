@@ -127,15 +127,6 @@ class MysqlPipeline(object):
     def close_spider(self, spider):
         self.db.close()
 
-    # def process_item(self, item, spider):
-    #     data = dict(item)
-    #     keys = ', '.join(data.keys())
-    #     values = ', '.join(['%s'] * len(data))
-    #     sql = 'insert into %s (%s) values (%s)' % (item.table, keys, values)
-    #     self.cursor.execute(sql, tuple(data.values()))
-    #     self.db.commit()
-    #     return item
-
     def process_item(self, item, spider):
         if isinstance(item, UserItem):
             self.insert_user(item, spider)
@@ -179,10 +170,7 @@ class MysqlPipeline(object):
                 item.get('remark', ""),
                 item.get('warning_reason', "")
             )
-            # sql = 'INSERT INTO post_user (userid, name, address, fixed_phone, phone_1, phone_2, ' \
-            #       'trade_level, credit_score, score_count, post_count, post_score, register_time, ' \
-            #       'remark, warning_reason)' \
-            #       'VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )'
+
             sql = 'INSERT INTO post_user (userid, name, address, fixed_phone, phone_1, phone_2, ' \
                   'trade_level, credit_score, score_count, post_count, post_score, register_time, ' \
                   'remark, warning_reason)' \
