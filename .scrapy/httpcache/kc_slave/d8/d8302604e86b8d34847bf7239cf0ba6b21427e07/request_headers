@@ -1,0 +1,5 @@
+Accept-Language: en
+Accept-Encoding: gzip,deflate
+User-Agent: Scrapy/1.6.0 (+https://scrapy.org)
+Referer: http://www.kc0011.net/dispbbs.asp?boardid=176&replyid=180882112&id=24425665&page=204&skin=0&Star=4
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8

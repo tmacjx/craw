@@ -1,0 +1,9 @@
+Server: Microsoft-IIS/7.5
+Cache-Control: private
+Date: Mon, 27 Jan 2020 15:15:48 GMT
+Set-Cookie: DvForum=StatUserID=18326991410; expires=Mon, 27-Jan-2020 16:15:46 GMT; path=/
+Set-Cookie: ASPSESSIONIDCSBQDSBS=HJKICDADAJOIDPPFAJMFPEEC; path=/
+X-Powered-By: ASP.NET
+Vary: Accept-Encoding
+Content-Type: text/html
+Content-Encoding: gzip
